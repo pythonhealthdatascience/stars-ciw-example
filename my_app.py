@@ -174,13 +174,16 @@ def server(input: Inputs, output: Outputs, session: Session):
     
     @reactive.Effect
     @reactive.event(input.run_sim)
-    def _():
+    async def _():
         '''
         Runs simulation model when button is clicked.
         This is a reactive effect. Once replication_results
         is set it invalidates results_table and histogram.  
         These are rerun by Shiny
         '''
+        ui.notification_show("Simulation running. Please wait", type='warning')
         replication_results.set(run_simulation())
+        ui.notification_show("Simulation complete.", type='message')
+
         
 app = App(app_ui, server)
