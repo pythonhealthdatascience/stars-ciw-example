@@ -1,13 +1,11 @@
 from shiny import App, ui, render, reactive, Inputs, Outputs, Session
-import asyncio
+import shinyswatch
 
 # import the wrapper objects for model interaction.
 from ciw_model import Experiment, multiple_replications
 
-import pandas as pd
-import numpy as np
-
 app_ui = ui.page_fixed(
+    shinyswatch.theme.minty(),
     ui.h2("Ciw Urgent Care Call Centre Model"),
     ui.markdown("""
         This app is based on a [ciw example][0] that simulates a simple call centre model.

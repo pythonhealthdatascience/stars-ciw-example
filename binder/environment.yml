@@ -5,9 +5,11 @@ dependencies:
   - matplotlib=3.3.4
   - numpy=1.19.2
   - pandas=1.2.3
+  - plotly=5.15.0
   - pip=21.0.1
   - python=3.8.12
   - scipy=1.6.1
   - pip:
     - ciw==2.3.1
-    - shiny
+    - shiny=0.4.0
+    - shinyswatch=0.2.4
