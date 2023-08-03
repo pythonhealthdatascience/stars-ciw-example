@@ -1,0 +1,7 @@
+---
+title: "Urgent Care Call Centre Model"
+---
+
+This is a Quarto website for the Ciw Model
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.

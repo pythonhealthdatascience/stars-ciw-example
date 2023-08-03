@@ -1,0 +1,24 @@
+project:
+  type: website
+  render:
+    - index.qmd
+    - model.ipynb
+    - about.qmd
+
+website:
+  title: "Urgent Care Calls Sim"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - model.ipynb
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
