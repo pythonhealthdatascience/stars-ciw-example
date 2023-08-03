@@ -1,8 +1,8 @@
-matplotlib=3.7.1
-numpy=1.25.0
-pandas=2.0.2
-plotly=5.15.0
-scipy=1.10.1
+matplotlib==3.7.1
+numpy==1.25.0
+pandas==2.0.2
+plotly==5.15.0
+scipy==1.10.1
 ciw==2.3.1
 shiny==0.4.0
 shinyswatch==0.2.4
