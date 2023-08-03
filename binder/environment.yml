@@ -14,3 +14,4 @@ dependencies:
     - shiny==0.4.0
     - shinyswatch==0.2.4
     - shinywidgets==0.2.1
+    - rsconnect-python==1.19.1
