@@ -1,0 +1,18 @@
+---
+title: "Preface"
+---
+
+This book contains example documentation and open working for a computer simulation model applied to a healthcare problem. The model is a simple discrete-event simulation of an urgent care call centre. The model is implemented in `python` and `ciw`.
+
+The book covers the following aspects of open working for simulation:
+
+* Sharing your model code and parameters with other researchers and simulation modellers.
+
+* An example of documenting your model using the STRESS reporting checklist (for DES).
+
+* Providing a simple executable version of your model for other to verify results.
+
+## Contributors
+
+* Thomas Monks, University of Exeter
+* Alison Harper, University of Exeter
