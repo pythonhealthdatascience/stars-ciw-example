@@ -6,6 +6,7 @@ project:
     - 01_intro/04_contributing.qmd
     - index.qmd
     - 02_model/01_basic_usage.ipynb
+    - 02_model/02_code_explaination.ipynb
     - about.qmd
 
 # theme:
@@ -25,11 +26,10 @@ website:
         contents:
           - 01_intro/02_license.qmd
           - 01_intro/04_contributing.qmd
-          - index.qmd
-          - about.qmd
       - section: "Model code"
         contents:
           - 02_model/01_basic_usage.ipynb
+          - 02_model/02_code_explaination.ipynb
  
 
   # navbar:
