@@ -1,5 +1,6 @@
 ---
 title: "Preface"
+title-block-banner: false
 toc: true
 format:
   html:

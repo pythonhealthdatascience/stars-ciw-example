@@ -1,0 +1,26 @@
+---
+title: "1. Objectives"
+---
+
+## 1.1 Purpose of the model
+
+::: {.callout-tip title="Primary purpose"}
+The simulation model provides a framework for decision makers to evaluate the impact of different resourcing for call operators and advanced nurse practitioners on queues and other efficiency criteria in the urgent care call centre.
+:::
+
+## 1.2 Model Outputs
+
+At the end of a model run the average waiting times and resource utilisation is calculated for each of the following activities.
+
+* Call triage by call operator
+* Nurse consultation call back
+
+Results are generated using multiple independent replications. No warm up period is employed.
+
+## 1.3 Experimentation aims
+
+* Increasing call operator capacity by +1
+* Increasing advacned nurse practitioner capacity by +1
+* Increasing chance of nurse callback by +5%
+
+

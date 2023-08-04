@@ -7,10 +7,11 @@ project:
     - 02_model/00_software.qmd
     - 02_model/01_basic_usage.ipynb
     - 02_model/02_code_explaination.ipynb
+    - 03_stress/01_objectives.qmd
 
 # theme:
 #   light: flatly
-#   dark: darkly
+#   dark: darkly 
     
 website:
   title: "S.T.A.R.S"
@@ -25,11 +26,16 @@ website:
         contents:
           - 01_intro/02_license.qmd
           - 01_intro/04_contributing.qmd
-      - section: "Model code"
+      - section: "`ciw` code"
         contents:
           - 02_model/00_software.qmd
           - 02_model/01_basic_usage.ipynb
           - 02_model/02_code_explaination.ipynb
+      - section: "STRESS reporting"
+        contents:
+          - 03_stress/01_objectives.qmd
+
+
  
 
   # navbar:
