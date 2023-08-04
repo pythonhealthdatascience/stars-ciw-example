@@ -12,7 +12,7 @@
 The materials and methods in this repository support work towards developing the S.T.A.R.S healthcare framework (**S**haring **T**ools and **A**rtifacts for **R**eproducible **S**imulations in healthcare).  The code and written materials here demonstrate the application of S.T.A.R.S' version 1 to sharing a `ciw` discrete-event simuilation model and associated research artifacts.  
 
 * All artifacts in this repository are linked to study researchers via ORCIDs;
-* Modelcode is made available under a GNU Public License version 3;
+* Model code is made available under a GNU Public License version 3;
 * Python dependencies are managed through `conda`;`
 * The code builds a Shiny for Python web application that can be used to run the model (web app);
 * The python code itself can be viewed and executed in Jupyter notebooks via [Binder](https://mybinder.org); 
@@ -27,7 +27,7 @@ The materials and methods in this repository support work towards developing the
 
 ## Shiny web app
 
-The `ciw` model has been given a Shiny for Python interface.  This allows users to easily experiment with the simulation model.  The web app is hosted on a free tier of shinyapps.io.  The app can be access at https://pythonhealthdatascience.shinyapps.io/ciw_call_centre1
+The `ciw` model has been given a Shiny for Python interface.  This allows users to easily experiment with the simulation model.  The web app is hosted on a free tier of shinyapps.io.  The app can be access at [https://pythonhealthdatascience.shinyapps.io/ciw_call_centre1](https://pythonhealthdatascience.shinyapps.io/ciw_call_centre1)
 
 > This is a free service. If the app has not been used for a while it will be "asleep" to save resources. Please be patient while the app "wakes up".  This will be a short time.
 
