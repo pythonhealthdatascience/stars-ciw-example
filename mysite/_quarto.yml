@@ -1,10 +1,9 @@
 project:
   type: website
   render:
-    - preface.qmd
+    - index.qmd
     - 01_intro/02_license.qmd
     - 01_intro/04_contributing.qmd
-    - index.qmd
     - 02_model/00_software.qmd
     - 02_model/01_basic_usage.ipynb
     - 02_model/02_code_explaination.ipynb
@@ -14,14 +13,14 @@ project:
 #   dark: darkly
     
 website:
-  title: "Urgent Care Calls Sim"
+  title: "S.T.A.R.S"
   repo-url: https://github.com/pythonhealthdatascience/ciw_shinyapp
   repo-actions: [edit, issue]
   sidebar:
     style: "docked"
     search: true
     contents:
-      - preface.qmd
+      - index.qmd
       - section: "Introduction"
         contents:
           - 01_intro/02_license.qmd
