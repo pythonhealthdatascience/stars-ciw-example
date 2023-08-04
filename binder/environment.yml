@@ -1,4 +1,4 @@
-name: deploy_pyshiny
+name: stars_pyshiny
 channels:
   - conda-forge
 dependencies:
