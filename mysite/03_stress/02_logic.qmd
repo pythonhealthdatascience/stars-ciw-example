@@ -1,0 +1,30 @@
+---
+title: "2. Logic"
+---
+
+## 2.1. Base model logic diagram
+
+```{mermaid}
+flowchart LR
+  A(Call) -->|Wait| B[Urgent Care call]
+  B --> C{Nurse?}
+  C -->|Yes/Wait| D[Nurse consultation]
+  C -->|No| E(Exit)
+  D --> E(Exit)
+```
+
+## 2.2. Base model logic
+
+Callers arrive at random with inter-arrival times following an Exponential distribution at a rate of 100 per hour. Call length can be represented by a triangular distribution. Calls last between 5 minutes and 15 minutes. Most calls last 7 minutes. There are 13 call operators.
+
+After a patient has spoken to a call operator their priority is triaged. It is estimated that 40% of patients require a callback from a nurse. There are 9 nurses available. A nurse patient consultation has a Uniform distribution lasting between 10 and 20 minutes.
+
+There is only a single class or patient in the model.
+
+## 2.3 Scenario logic
+
+Experimentation in this model is simple and varies the number of resources available.
+
+## 2.4 Algorithms
+
+N/A.

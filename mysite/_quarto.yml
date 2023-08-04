@@ -8,6 +8,8 @@ project:
     - 02_model/01_basic_usage.ipynb
     - 02_model/02_code_explaination.ipynb
     - 03_stress/01_objectives.qmd
+    - 03_stress/02_logic.qmd
+    - 03_stress/03_data.qmd
 
 # theme:
 #   light: flatly
@@ -34,6 +36,8 @@ website:
       - section: "STRESS reporting"
         contents:
           - 03_stress/01_objectives.qmd
+          - 03_stress/02_logic.qmd
+          - 03_stress/03_data.qmd
 
 
  
