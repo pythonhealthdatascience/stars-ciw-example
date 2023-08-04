@@ -11,6 +11,8 @@ project:
     
 website:
   title: "Urgent Care Calls Sim"
+  repo-url: https://github.com/pythonhealthdatascience/ciw_shinyapp
+  repo-actions: [edit, issue]
   sidebar:
     style: "docked"
     search: true
@@ -37,6 +39,10 @@ website:
             url:  https://github.com/pythonhealthdatascience/ciw_shinyapp
           - text: Report a Bug
             url:  https://github.com/pythonhealthdatascience/ciw_shinyapp/issues
+      - icon: rocket-takeoff-fill
+        menu:
+          - text: Launch in Binder
+            url: https://mybinder.org/v2/gh/pythonhealthdatascience/ciw_shinyapp/HEAD
 
 
 format:
