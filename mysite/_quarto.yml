@@ -2,6 +2,7 @@ project:
   type: website
   render:
     - preface.qmd
+    - 01_intro/02_license.qmd
     - index.qmd
     - model.ipynb
     - about.qmd
@@ -21,6 +22,7 @@ website:
       - preface.qmd
       - section: "Introduction"
         contents:
+          - 01_intro/02_license.qmd
           - index.qmd
           - about.qmd
       - section: "Model"
