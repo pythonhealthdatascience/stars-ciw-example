@@ -5,6 +5,10 @@ project:
     - model.ipynb
     - about.qmd
 
+# theme:
+#   light: flatly
+#   dark: darkly
+    
 website:
   title: "Urgent Care Calls Sim"
   sidebar:
@@ -18,6 +22,7 @@ website:
       - section: "Model"
         contents:
           - model.ipynb
+ 
 
   # navbar:
   #   left:
