@@ -1,0 +1,15 @@
+---
+title: "4. Experimentation"
+---
+
+## 4.1 Initialisation
+
+The model is treated as non-terminating i.e. the model starts from empty.  No warm-up period is used in this example.  
+
+## 4.2 Run length
+
+The time units used in the model are minutes and a run length of 1000 minutes is used.
+
+## 4.3 Estimation approach
+
+Multiple independent replications are employed to account for stochasticty. Common random numbers are **not** employed between scenarios.  The number of replications can be varied, but a total of 5 replications are run for each experiment by default.
