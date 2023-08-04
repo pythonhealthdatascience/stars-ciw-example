@@ -1,6 +1,7 @@
 project:
   type: website
   render:
+    - preface.qmd
     - index.qmd
     - model.ipynb
     - about.qmd
@@ -17,6 +18,7 @@ website:
     style: "docked"
     search: true
     contents:
+      - preface.qmd
       - section: "Introduction"
         contents:
           - index.qmd
