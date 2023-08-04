@@ -3,8 +3,9 @@ project:
   render:
     - preface.qmd
     - 01_intro/02_license.qmd
+    - 01_intro/04_contributing.qmd
     - index.qmd
-    - model.ipynb
+    - 02_model/01_basic_usage.ipynb
     - about.qmd
 
 # theme:
@@ -23,11 +24,12 @@ website:
       - section: "Introduction"
         contents:
           - 01_intro/02_license.qmd
+          - 01_intro/04_contributing.qmd
           - index.qmd
           - about.qmd
-      - section: "Model"
+      - section: "Model code"
         contents:
-          - model.ipynb
+          - 02_model/01_basic_usage.ipynb
  
 
   # navbar:
