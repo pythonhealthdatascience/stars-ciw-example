@@ -7,12 +7,32 @@ project:
 
 website:
   title: "Urgent Care Calls Sim"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - model.ipynb
-      - about.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "Introduction"
+        contents:
+          - index.qmd
+          - about.qmd
+      - section: "Model"
+        contents:
+          - model.ipynb
+
+  # navbar:
+  #   left:
+  #     - href: index.qmd
+  #       text: Home
+  #     - model.ipynb
+  #     - about.qmd
+    tools:
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  https://github.com/pythonhealthdatascience/ciw_shinyapp
+          - text: Report a Bug
+            url:  https://github.com/pythonhealthdatascience/ciw_shinyapp/issues
+
 
 format:
   html:

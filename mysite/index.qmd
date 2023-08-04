@@ -1,5 +1,5 @@
 ---
-title: "Urgent Care Call Centre Model"
+title: "Urgent Care Call Centre"
 ---
 
 This is a Quarto website for the Ciw Model
