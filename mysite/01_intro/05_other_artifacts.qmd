@@ -1,0 +1,15 @@
+---
+title: Related artifacts
+---
+
+## Shiny web app
+
+The `ciw` model described in this material has been given a Shiny for Python interface.  This allows users to easily experiment with the simulation model.  The web app is hosted on a free tier of shinyapps.io.  The app can be accessed at [https://pythonhealthdatascience.shinyapps.io/ciw_call_centre1](https://pythonhealthdatascience.shinyapps.io/ciw_call_centre1)
+
+> This is a free service. If the app has not been used for a while it will be "asleep" to save resources. Please be patient while the app "wakes up".  This will be a short time.
+
+## Online Notebooks via Binder
+
+The python code for the model has been setup to run online in Jupyter notebooks via binder [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pythonhealthdatascience/ciw_shinyapp/HEAD)
+
+> Binder is a free service.  If it has not been used in a while Binder will need to re-containerise the code repository, and push to binderhub. This will take several minutes. After that the online environment will be quick to load.

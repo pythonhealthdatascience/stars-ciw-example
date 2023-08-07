@@ -2,8 +2,10 @@ project:
   type: website
   render:
     - index.qmd
+    - preface.qmd
     - 01_intro/02_license.qmd
     - 01_intro/04_contributing.qmd
+    - 01_intro/05_other_artifacts.qmd
     - 02_model/00_software.qmd
     - 02_model/01_basic_usage.ipynb
     - 02_model/02_code_explaination.ipynb
@@ -26,11 +28,12 @@ website:
     style: "docked"
     search: true
     contents:
-      - index.qmd
       - section: "Introduction"
         contents:
+          - preface.qmd
           - 01_intro/02_license.qmd
           - 01_intro/04_contributing.qmd
+          - 01_intro/05_other_artifacts.qmd
       - section: "`ciw` code"
         contents:
           - 02_model/00_software.qmd

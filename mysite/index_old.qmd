@@ -1,5 +1,5 @@
 ---
-title: "Abstract"
+title: "Preface"
 title-block-banner: false
 toc: true
 format:
@@ -10,6 +10,8 @@ format:
 
 [![ORCID: Harper](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
 [![ORCID: Monks](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
+
+### Overview
 
 The materials and methods in this documentation support work towards developing the S.T.A.R.S healthcare framework (**S**haring **T**ools and **A**rtifacts for **R**eproducible **S**imulations in healthcare).  Long term S.T.A.R.S aims to support researchers share open simulation models regardless of language choice, improve the quality of sharing, and reduce the workload required to meet high standards of open science for the modelling and simulation community.
 
@@ -23,3 +25,19 @@ The code and written materials here demonstrate the application of S.T.A.R.S' ve
 * The model is documented and explained in a quarto website served up by GitHub pages;
 * The materials are deposited and made citatable using Zenodo;
 * The models are sharable with other researchers and the NHS without the need to install software.
+
+### Study authors
+
+## Other research artifacts
+
+### Shiny web app
+
+The `ciw` model has been given a Shiny for Python interface.  This allows users to easily experiment with the simulation model.  The web app is hosted on a free tier of shinyapps.io.  The app can be accessed at [https://pythonhealthdatascience.shinyapps.io/ciw_call_centre1](https://pythonhealthdatascience.shinyapps.io/ciw_call_centre1)
+
+> This is a free service. If the app has not been used for a while it will be "asleep" to save resources. Please be patient while the app "wakes up".  This will be a short time.
+
+### Online Notebooks via Binder
+
+The python code for the model has been setup to run online in Jupyter notebooks via binder [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pythonhealthdatascience/ciw_shinyapp/HEAD)
+
+> Binder is a free service.  If it has not been used in a while Binder will need to re-containerise the code repository, and push to binderhub. This will take several minutes. After that the online environment will be quick to load.
