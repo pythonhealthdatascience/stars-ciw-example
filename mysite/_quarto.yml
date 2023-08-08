@@ -1,0 +1,69 @@
+project:
+  type: website
+  render:
+    - index.qmd
+    - preface.qmd
+    - 01_intro/02_license.qmd
+    - 01_intro/04_contributing.qmd
+    - 01_intro/05_other_artifacts.qmd
+    - 02_model/00_software.qmd
+    - 02_model/01_basic_usage.ipynb
+    - 02_model/02_code_explaination.ipynb
+    - 03_stress/01_objectives.qmd
+    - 03_stress/02_logic.qmd
+    - 03_stress/03_data.qmd
+    - 03_stress/04_experiment.qmd
+    - 03_stress/05_implementation.qmd
+    - 03_stress/06_code_access.qmd
+
+# theme:
+#   light: flatly
+#   dark: darkly 
+    
+website:
+  title: "S.T.A.R.S"
+  repo-url: https://github.com/pythonhealthdatascience/ciw_shinyapp
+  repo-actions: [edit, issue]
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "Introduction"
+        contents:
+          - preface.qmd
+          - 01_intro/02_license.qmd
+          - 01_intro/04_contributing.qmd
+          - 01_intro/05_other_artifacts.qmd
+      - section: "`ciw` code"
+        contents:
+          - 02_model/00_software.qmd
+          - 02_model/01_basic_usage.ipynb
+          - 02_model/02_code_explaination.ipynb
+      - section: "STRESS reporting"
+        contents:
+          - 03_stress/01_objectives.qmd
+          - 03_stress/02_logic.qmd
+          - 03_stress/03_data.qmd
+          - 03_stress/04_experiment.qmd
+          - 03_stress/05_implementation.qmd
+          - 03_stress/06_code_access.qmd 
+    tools:
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  https://github.com/pythonhealthdatascience/ciw_shinyapp
+          - text: Report a Bug
+            url:  https://github.com/pythonhealthdatascience/ciw_shinyapp/issues
+      - icon: rocket-takeoff-fill
+        menu:
+          - text: Launch in Binder
+            url: https://mybinder.org/v2/gh/pythonhealthdatascience/ciw_shinyapp/HEAD
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

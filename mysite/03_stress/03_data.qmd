@@ -1,0 +1,29 @@
+---
+title: "3. Data"
+---
+
+## 3.1 Data sources
+
+This is a stylised model.  All data are synthentic.
+
+## 3.2 Pre-processing
+
+No additional pre-processing of data was undertaken.
+
+## 3.3. Input parameters
+
+## Sampling distributions
+
+| Activity                                            | Distribution                  |
+|-----------------------------------------------------|-------------------------------|
+| Patient inter-arrival time                          | Exponential(100.0 / 60.0)     |
+| Call duration                                       | Triangular(5.0, 7.0, 15.0)    |
+| Chance nurse callback                               | Bernoulli(0.40)               |
+| Nurse call duration                                 | Uniform (10.0, 20.0)          |
+
+## Resources
+
+| Resource                                            | Count                         |
+|-----------------------------------------------------|-------------------------------|
+| Call operators                                      | 13                            |
+| advanced nurse practitioners                        | 9                             |

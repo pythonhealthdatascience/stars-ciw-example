@@ -1,0 +1,31 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Towards Sharing Tools, Artifacts, and Reproducible
+  Simulation: a ciw model examplar
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Thomas
+    family-names: Monks
+    affiliation: University of Exeter
+    orcid: 'https://orcid.org/0000-0003-2631-4481'
+  - given-names: Alison
+    family-names: Harper
+    affiliation: University of Exeter
+    orcid: 'https://orcid.org/0000-0001-5274-5037'
+repository-code: 'https://github.com/pythonhealthdatascience/ciw_shinyapp'
+url: 'https://pythonhealthdatascience.github.io/ciw_shinyapp/'
+keywords:
+  - Discrete-event simulation
+  - Health services research
+  - Open science
+  - shiny for python
+  - ciw
+  - quarto
+  - simulation
+license: GPL-3.0

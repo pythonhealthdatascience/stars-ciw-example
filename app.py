@@ -8,39 +8,48 @@ import pandas as pd
 from ciw_model import Experiment, multiple_replications
 
 app_ui = ui.page_fluid(
-    shinyswatch.theme.minty(),
-    ui.h2("Ciw Urgent Care Call Centre Model"),
+    shinyswatch.theme.journal(),
+    ui.h1("Ciw Urgent Care Call Centre Model"),
     ui.markdown("""
-        This app is based on a [ciw example][0] that simulates a simple call centre model.
-        [0]:https://health-data-science-or.github.io/simpy-streamlit-tutorial/content/03_streamlit/13_ciw_backend.html
+        This app is based on a 
+        [ciw example](https://health-data-science-or.github.io/simpy-streamlit-tutorial/content/03_streamlit/13_ciw_backend.html) 
+        that simulates a simple call centre model.
     """),
-    ui.layout_sidebar(
-        ui.panel_sidebar(
-            # number of call operators
-            ui.input_slider("n_operators", "Call operators", 1, 40, 13, sep=5),
-        
-            # nurses on duty
-            ui.input_slider("n_nurses", "Nurse practitioners", 1, 20, 9),
-            
-            # chance of nurse call back
-            ui.input_slider("chance_callback", "Probability of nurse callback", 0.0, 1.0, 0.4),
+    ui.navset_tab(
+        ui.nav("Interactive simulation", 
 
-            # Number of replications
-            ui.input_numeric("n_reps", "Replications", value=5),
 
-            # run simulation model button
-            ui.input_action_button("run_sim", "Run Simulation", class_="btn-primary"),
+            ui.layout_sidebar(
+                ui.panel_sidebar(
+                    # number of call operators
+                    ui.input_slider("n_operators", "Call operators", 1, 40, 13, sep=5),
+                
+                    # nurses on duty
+                    ui.input_slider("n_nurses", "Nurse practitioners", 1, 20, 9),
+                    
+                    # chance of nurse call back
+                    ui.input_slider("chance_callback", "Probability of nurse callback", 0.0, 1.0, 0.4),
 
-            width=2
+                    # Number of replications
+                    ui.input_numeric("n_reps", "Replications", value=5),
+
+                    # run simulation model button
+                    ui.input_action_button("run_sim", "Run Simulation", class_="btn-primary"),
+
+                    width=2
+                ),
+                ui.panel_main(
+
+                    ui.row(
+                        ui.column(5, ui.output_data_frame("result_table"),),
+                        ui.column(7, output_widget("histogram")),
+                    ),
+
+                )
+            )
+
         ),
-        ui.panel_main(
-
-            ui.row(
-                ui.column(5, ui.output_data_frame("result_table"),),
-                ui.column(7, output_widget("histogram")),
-            ),
-
-        )
+        ui.nav("About", "tab b content"),
     )
 )
 
@@ -181,6 +190,9 @@ def server(input: Inputs, output: Outputs, session: Session):
         is set it invalidates results_table and histogram.  
         These are rerun by Shiny
         '''
+        # set to empty - forces shiny to dim output widgets
+        # helps with the feeling of waiting for simulation to complete
+        replication_results.set([])
         ui.notification_show("Simulation running. Please wait", type='warning')
         replication_results.set(run_simulation())
         ui.notification_show("Simulation complete.", type='message')

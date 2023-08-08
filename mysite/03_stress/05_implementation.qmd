@@ -1,0 +1,39 @@
+---
+title: "5. Implementation"
+---
+
+## 5.1 Software or programming language
+
+The simulation model was developed using python 3.9 and `ciw` 2.3.  `ciw` details are here: [https://ciw.readthedocs.io](https://ciw.readthedocs.io)
+
+The web app was developed using *Shiny for Python* version 0.4.0
+
+The exact software versions are:
+
+```yml
+matplotlib=3.7.1
+numpy=1.25.0
+pandas=2.0.2
+plotly=5.15.0
+pip=23.1.2
+python=3.9.16
+scipy=1.10.1
+ciw==2.3.1
+shiny==0.4.0
+shinyswatch==0.2.4
+shinywidgets==0.2.1
+```
+
+A [conda virtual environment](https://github.com/pythonhealthdatascience/ciw_shinyapp/blob/main/binder/environment.yml) is provided to manage versions on a local machine.
+
+## 5.2 Random sampling 
+
+`ciw`'s [source code](https://github.com/CiwPython/Ciw/blob/master/ciw/dists/distributions.py) indicates that it uses python's `random` module for generating samples.  Python uses the Mersenne Twister to generate uniform random numbers. [https://docs.python.org/3/library/random.html](https://docs.python.org/3/library/random.html ) 
+
+## 5.3 Model execution
+
+`ciw` uses an event scheduling approach similar to the three phase simulation worldview.  More details [https://ciw.readthedocs.io/en/latest/Background/mechanisms.html](https://ciw.readthedocs.io/en/latest/Background/mechanisms.html)
+
+## 5.4 System Specification
+
+The model was coded, tested, and run on Intel i9-9900K CPU with 64GB RAM running the Pop!_OS 20.04 Linux.
