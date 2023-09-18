@@ -1,0 +1,12 @@
+{
+    "https://api.shinyapps.io": {
+        "server_url": "https://api.shinyapps.io",
+        "filename": "/home/tom/Documents/code/stars-ciw-examplar",
+        "app_url": "https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar/",
+        "app_id": 9899846,
+        "app_guid": null,
+        "title": "stars-ciw-examplar",
+        "app_mode": "python-shiny",
+        "app_store_version": 1
+    }
+}
