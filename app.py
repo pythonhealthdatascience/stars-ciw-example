@@ -7,6 +7,25 @@ import pandas as pd
 # import the wrapper objects for model interaction.
 from ciw_model import Experiment, multiple_replications
 
+ABOUT = """## About
+
+This work is produced using entirely free and open software in python.
+
+> This model is independent research supported by the National Institute for Health Research 
+Applied Research Collaboration South West Peninsula. 
+The views expressed in this publication are those of the author(s) and not necessarily 
+those of the National Institute for Health Research or the Department of Health and Social Care."""
+
+
+SIMSOFTWARE = """## Modelling and Simulation Software
+
+The model is written in python3 and `ciw`. The simulation libary `ciw` is a network based DES package.
+
+> Detailed documentation for `ciw` and additional models can be found here: https://ciw.readthedocs.io
+
+"""
+
+
 app_ui = ui.page_fluid(
     shinyswatch.theme.journal(),
     ui.h1("Ciw Urgent Care Call Centre Model"),
@@ -49,7 +68,9 @@ app_ui = ui.page_fluid(
             )
 
         ),
-        ui.nav("About", "tab b content"),
+        ui.nav("About", 
+               ui.markdown(ABOUT),
+               ui.markdown(SIMSOFTWARE)),
     )
 )
 
