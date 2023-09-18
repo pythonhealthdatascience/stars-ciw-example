@@ -25,6 +25,10 @@ The model is written in python3 and `ciw`. The simulation libary `ciw` is a netw
 
 """
 
+DOCS_LINK = """### Model Documentation
+Live documentation including STRESS-DES reporting for the model and 
+is available https://pythonhealthdatascience.github.io/stars-ciw-examplar"""
+
 
 app_ui = ui.page_fluid(
     shinyswatch.theme.journal(),
@@ -61,7 +65,8 @@ app_ui = ui.page_fluid(
 
                     ui.row(
                         ui.column(5, ui.output_data_frame("result_table"),),
-                        ui.column(7, output_widget("histogram")),
+                        ui.column(7, output_widget("histogram"),),
+
                     ),
 
                 )
@@ -70,7 +75,8 @@ app_ui = ui.page_fluid(
         ),
         ui.nav("About", 
                ui.markdown(ABOUT),
-               ui.markdown(SIMSOFTWARE)),
+               ui.markdown(SIMSOFTWARE),
+               ui.markdown(DOCS_LINK)),
     )
 )
 

@@ -27,7 +27,7 @@ The materials and methods in this repository support work towards developing the
 
 ## Shiny web app
 
-The `ciw` model has been given a Shiny for Python interface.  This allows users to easily experiment with the simulation model.  The web app is hosted on a free tier of shinyapps.io.  The app can be access at [https://pythonhealthdatascience.shinyapps.io/ciw_call_centre1](https://pythonhealthdatascience.shinyapps.io/ciw_call_centre1)
+The `ciw` model has been given a Shiny for Python interface.  This allows users to easily experiment with the simulation model.  The web app is hosted on a free tier of shinyapps.io.  The app can be access at [https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar](https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar)
 
 > This is a free service. If the app has not been used for a while it will be "asleep" to save resources. Please be patient while the app "wakes up".  This will be a short time.
 
