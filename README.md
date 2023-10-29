@@ -1,4 +1,5 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pythonhealthdatascience/stars-ciw-examplar/HEAD)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10051495.svg)](https://doi.org/10.5281/zenodo.10051495)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/)
 [![Read the Docs](https://readthedocs.org/projects/pip/badge/?version=latest)](https://pythonhealthdatascience.github.io/stars-ciw-examplar/)
@@ -24,6 +25,25 @@ The materials and methods in this repository support work towards developing the
 
 [![ORCID: Harper](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
 [![ORCID: Monks](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
+
+## Citation
+
+> Monks, T., & Harper, A. (2023). Towards Sharing Tools, Artifacts, and Reproducible Simulation: a ciw model examplar (v1.0.1). Zenodo. https://doi.org/10.5281/zenodo.10051495
+
+```bibtex
+@software{monks_2023_10051495,
+  author       = {Monks, Thomas and
+                  Harper, Alison},
+  title        = {{Towards Sharing Tools, Artifacts, and Reproducible 
+                   Simulation: a ciw model examplar}},
+  month        = oct,
+  year         = 2023,
+  publisher    = {Zenodo},
+  version      = {v1.0.1},
+  url	       = {https://doi.org/10.5281/zenodo.10051495},#
+  doi          = {10.5281/zenodo.10051495},
+}
+```
 
 ## Funding
 
