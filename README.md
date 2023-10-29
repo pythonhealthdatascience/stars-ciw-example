@@ -29,6 +29,10 @@ The materials and methods in this repository support work towards developing the
 
 This code is part of independent research supported by the National Institute for Health Research Applied Research Collaboration South West Peninsula. The views expressed in this publication are those of the author(s) and not necessarily those of the National Institute for Health Research or the Department of Health and Social Care.
 
+## Case study model
+
+We reuse a stylised urgent care call centre model that we have [previously published](https://openresearch.nihr.ac.uk/articles/3-48). In the model a caller with urgent care needs arrives at randomly to a call centre. The centre is staffed by call operators who answer calls from a first in first out queue. Patients are triaged, and provided a call designation; for example, whether the patient should be allocated an appointment in primary care with a General Practitioner (family doctor) within 48 hours, or if a call back from a nurse is needed.  Callers that are designated as needing a nurse callback enter a first in first out queue until a nurse is available. 
+
 ## Shiny web app
 
 The `ciw` model has been given a Shiny for Python interface.  This allows users to easily experiment with the simulation model.  The web app is hosted on a free tier of shinyapps.io.  The app can be access at [https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar](https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar)
