@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
 [![License: MIT](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
 
-#   Towards Sharing Tools and Artifacts for Reuable Simulation: a `ciw` model examplar
+#   Towards Sharing Tools and Artifacts for Reuable Simulation: a `ciw` model example
 
 ## Overview
 
@@ -28,14 +28,14 @@ The materials and methods in this repository support work towards developing the
 
 ## Citation
 
-> Monks, T., & Harper, A. (2023). Towards Sharing Tools, Artifacts, and Reproducible Simulation: a ciw model examplar (v1.0.1). Zenodo. https://doi.org/10.5281/zenodo.10051495
+> Monks, T., & Harper, A. (2023). Towards Sharing Tools, Artifacts, and Reproducible Simulation: a ciw model example (v1.0.1). Zenodo. https://doi.org/10.5281/zenodo.10051495
 
 ```bibtex
 @software{monks_2023_10051495,
   author       = {Monks, Thomas and
                   Harper, Alison},
   title        = {{Towards Sharing Tools, Artifacts, and Reproducible 
-                   Simulation: a ciw model examplar}},
+                   Simulation: a ciw model example}},
   month        = oct,
   year         = 2023,
   publisher    = {Zenodo},
