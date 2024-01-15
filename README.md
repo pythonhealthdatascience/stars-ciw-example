@@ -67,9 +67,9 @@ The python code for the model has been setup to run online in Jupyter notebooks 
 
 ## Online documentation produced by Quarto
 
-[![Read the Docs](https://readthedocs.org/projects/pip/badge/?version=latest)](https://pythonhealthdatascience.github.io/stars-ciw-examplar/)
+[![Read the Docs](https://readthedocs.org/projects/pip/badge/?version=latest)](https://pythonhealthdatascience.github.io/stars-ciw-example/)
 
-* Visit our [quarto website](https://pythonhealthdatascience.github.io/stars-ciw-examplar/) for detailed overview of the project, and code: https://pythonhealthdatascience.github.io/stars-ciw-examplar
+* Visit our [quarto website](https://pythonhealthdatascience.github.io/stars-ciw-example/) for detailed overview of the project, and code: https://pythonhealthdatascience.github.io/stars-ciw-example
 
 ## How to run the model locally
 
