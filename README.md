@@ -80,7 +80,7 @@ Alternatively you may wish to run the Shiny App locally on your own machine.
 Either clone the repository using git or click on the green "code" button and select "Download Zip".
 
 ```bash
-git clone https://github.com/pythonhealthdatascience/stars-ciw-examplar
+git clone https://github.com/pythonhealthdatascience/stars-ciw-example
 ```
 
 ### Installing dependencies
