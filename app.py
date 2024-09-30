@@ -88,7 +88,8 @@ that simulates a simple call centre model."""),
                     # Number of replications
                     ui.input_numeric(id="n_reps",
                                      label="Replications",
-                                     value=5),
+                                     value=5,
+                                     min=1),  # Min for arrow click, but can still override by typing
 
                     # run simulation model button
                     ui.input_action_button(id="run_sim",
@@ -99,15 +100,10 @@ that simulates a simple call centre model."""),
                 ),
                 ui.panel_main(
 
-                    ui.row(
-                        ui.column(5, ui.output_data_frame("result_table"),),
-                        ui.column(7, output_widget("histogram"),),
-
-                    ),
-
-                )
-            )
-
+                    ui.output_data_frame("result_table"),
+                    output_widget("histogram"),
+                ),
+            ),
         ),
         ui.nav("About", 
                ui.markdown(ABOUT),
@@ -150,9 +146,23 @@ def server(input: Inputs, output: Outputs, session: Session):
         pd.DataFrame
         '''
         summary = replications.describe().round(2).T
-        # resetting index because cannot figure out how to show index
+
+        # Resetting index because cannot figure out how to show index
         summary = summary.reset_index() 
         summary = summary.rename(columns={'index': 'metric'})
+
+        # Renaming columns
+        metrics = {
+            '01_mean_waiting_time': 'Time waiting for operator (mins)',
+            '02_operator_util': 'Operator utilisation (%)',
+            '03_mean_nurse_waiting_time': 'Time waiting for nurse (mins)',
+            '04_nurse_util': 'Nurse utilisation (%)'
+        }
+        summary['metric'] = summary['metric'].map(metrics)
+
+        # Drop count, as that is implicit from chosen number of replications
+        summary = summary.drop('count', axis=1)
+
         return summary
     
     def create_user_filtered_hist(results):
