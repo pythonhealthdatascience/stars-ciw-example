@@ -3,13 +3,14 @@ from shinywidgets import output_widget, render_widget
 import shinyswatch
 import plotly.graph_objects as go
 import pandas as pd
+from pathlib import Path
 
 # import the wrapper objects for model interaction.
 from ciw_model import Experiment, multiple_replications
 
 ABOUT = """## About
 
-This work is produced using entirely free and open software in python.
+This work is produced using entirely free and open-source software in python.
 
 > This model is independent research supported by the National Institute for Health Research 
 Applied Research Collaboration South West Peninsula. 
@@ -25,19 +26,35 @@ The model is written in python3 and `ciw`. The simulation libary `ciw` is a netw
 
 """
 
-DOCS_LINK = """### Model Documentation
+DOCS_LINK = """## Model Documentation
 Live documentation including STRESS-DES reporting for the model and 
-is available https://pythonhealthdatascience.github.io/stars-ciw-examplar"""
-
+is available at: https://pythonhealthdatascience.github.io/stars-ciw-examplar"""
 
 app_ui = ui.page_fluid(
     shinyswatch.theme.journal(),
-    ui.h1("Ciw Urgent Care Call Centre Model"),
-    ui.markdown("""
-        This app is based on a 
-        [ciw example](https://health-data-science-or.github.io/simpy-streamlit-tutorial/content/03_streamlit/13_ciw_backend.html) 
-        that simulates a simple call centre model.
-    """),
+
+    # Page header
+    ui.row(
+        # Logo
+        ui.column(
+            1,  # Column width
+            ui.tags.div(
+                ui.tags.img(
+                    src="stars_logo.png", height="100px"),
+            ),
+        ),
+        # Heading and introduction
+        ui.column(
+            11,  # Column width
+            ui.h1(
+                "Ciw Urgent Care Call Centre Model", style="margin-top: 10px;"),
+            ui.markdown("""
+This app is based on a 
+[ciw example](https://health-data-science-or.github.io/simpy-streamlit-tutorial/content/03_streamlit/13_ciw_backend.html) 
+that simulates a simple call centre model."""),
+        ),
+    ),
+    
     ui.navset_tab(
         ui.nav("Interactive simulation", 
 
@@ -45,19 +62,38 @@ app_ui = ui.page_fluid(
             ui.layout_sidebar(
                 ui.panel_sidebar(
                     # number of call operators
-                    ui.input_slider("n_operators", "Call operators", 1, 40, 13, sep=5),
+                    ui.input_slider(id="n_operators",
+                                    label="Call operators",
+                                    min=1,
+                                    max=40,
+                                    value=13,
+                                    ticks=False),
                 
                     # nurses on duty
-                    ui.input_slider("n_nurses", "Nurse practitioners", 1, 20, 9),
+                    ui.input_slider(id="n_nurses",
+                                    label="Nurse practitioners",
+                                    min=1,
+                                    max=20,
+                                    value=9,
+                                    ticks=False),
                     
                     # chance of nurse call back
-                    ui.input_slider("chance_callback", "Probability of nurse callback", 0.0, 1.0, 0.4),
+                    ui.input_slider(id="chance_callback",
+                                    label="Probability of nurse callback",
+                                    min=0.0,
+                                    max=1.0,
+                                    value=0.4,
+                                    ticks=False),
 
                     # Number of replications
-                    ui.input_numeric("n_reps", "Replications", value=5),
+                    ui.input_numeric(id="n_reps",
+                                     label="Replications",
+                                     value=5),
 
                     # run simulation model button
-                    ui.input_action_button("run_sim", "Run Simulation", class_="btn-primary"),
+                    ui.input_action_button(id="run_sim",
+                                           label="Run Simulation",
+                                           class_="btn-primary"),
 
                     width=2
                 ),
@@ -224,5 +260,5 @@ def server(input: Inputs, output: Outputs, session: Session):
         replication_results.set(run_simulation())
         ui.notification_show("Simulation complete.", type='message')
 
-        
-app = App(app_ui, server)
+www_dir = Path(__file__).parent / "www"
+app = App(app_ui, server, static_assets=www_dir)
