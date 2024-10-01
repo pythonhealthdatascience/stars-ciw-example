@@ -10,6 +10,24 @@ from faicons import icon_svg
 # Import the wrapper objects for model interaction.
 from ciw_model import Experiment, multiple_replications
 
+MODELDESCRIPTION = """
+This app is based on a 
+[ciw example](https://health-data-science-or.github.io/simpy-streamlit-tutorial/content/03_streamlit/13_ciw_backend.html) 
+that simulates a simple call centre model.
+
+In this model:
+
+1. Patients ring the urgent care call centre and wait for an operator.
+2. A given proportion of patients will then require callback from a nurse.
+
+The simulation allows you to alter the number of call operators and nurses on
+duty.
+
+You can then view the subsequent impact on caller wait times and staff
+utilisation (i.e. the proportion of time that operators or nurses spent on
+call, whilst on duty).
+"""
+
 ABOUT = """## About
 
 This work is produced using entirely free and open-source software in python.
@@ -38,27 +56,25 @@ app_ui = ui.page_fluid(
     ui.row(
         # Logo
         ui.column(
-            # Column width
-            1,
+            # Column width (required by function but we override with style)
+            6,
             # Logo
             ui.tags.div(
                 ui.tags.img(
                     src="stars_logo.png", height="100px"),
             ),
+            # Ensure that the column always takes up 110px
+            style="flex: 0 0 110px; max-width: 110px;",
         ),
         # Heading and introduction
         ui.column(
-            # Column width
-            11,
+            # Column width (required by function but we override with style)
+            6,
             # Title
             ui.h1(
                 "Ciw Urgent Care Call Centre Model", style="margin-top: 10px;"),
-            # Introductory sentence
-            ui.markdown("""
-                This app is based on a 
-                [ciw example](https://health-data-science-or.github.io/simpy-streamlit-tutorial/content/03_streamlit/13_ciw_backend.html) 
-                that simulates a simple call centre model.
-            """),
+            # Introductory paragraph
+            ui.markdown(MODELDESCRIPTION),
             # Button to navigate to GitHub code
             ui.input_action_button(
                 id="github_btn",
@@ -80,7 +96,9 @@ app_ui = ui.page_fluid(
                 document.getElementById('docs_btn').onclick = function() {
                     window.open('https://pythonhealthdatascience.github.io/stars-ciw-example/', '_blank');
                 };
-            """)
+            """),
+            # Resize width to fill space, alongside the fixed logo column
+            style="flex: 1; min-width: 0;",
         ),
     ),
 
@@ -95,38 +113,50 @@ app_ui = ui.page_fluid(
                 # Sidebar content
                 ui.sidebar(
                     
-                    # number of call operators
-                    ui.input_slider(id="n_operators",
-                                    label="Call operators",
-                                    min=1,
-                                    max=40,
-                                    value=13,
-                                    ticks=False),
-                
-                    # nurses on duty
-                    ui.input_slider(id="n_nurses",
-                                    label="Nurse practitioners",
-                                    min=1,
-                                    max=20,
-                                    value=9,
-                                    ticks=False),
-                    
+                    # Number of call operators
                     ui.tooltip(
-                        # chance of nurse call back
+                        ui.input_slider(id="n_operators",
+                                        label="Call operators",
+                                        min=1,
+                                        max=40,
+                                        value=13,
+                                        ticks=False),
+                        "Number of call operators on duty"
+                    ),
+
+                    # Number of nurses on duty
+                    ui.tooltip(
+                        ui.input_slider(id="n_nurses",
+                                        label="Nurse practitioners",
+                                        min=1,
+                                        max=20,
+                                        value=9,
+                                        ticks=False),
+                        "Number of nurses on duty"
+                    ),
+
+                    # Chance of nurse callback
+                    ui.tooltip(
                         ui.input_slider(id="chance_callback",
                                         label="Probability of nurse callback",
                                         min=0.0,
                                         max=1.0,
                                         value=0.4,
                                         ticks=False),
-                        "Set the probability of nurse callback: 0 means never, 0.5 means 50% of the time, and 1 means always."
+                        """The probability of nurse callback: 0 means never,
+                        0.5 means 50% of the time, and 1 means always"""
                     ),
 
                     # Number of replications
-                    ui.input_numeric(id="n_reps",
-                                     label="Replications",
-                                     value=5,
-                                     min=1),  # Min for arrow click, but can still override by typing
+                    ui.tooltip(
+                        # We set a minimum which applies to the arrow clicked,
+                        # but user can still override minimum by typing
+                        ui.input_numeric(id="n_reps",
+                                        label="Replications",
+                                        value=5,
+                                        min=1),
+                        "How many times to run the model (minimum 1)"
+                    ),
 
                     # run simulation model button
                     ui.input_action_button(id="run_sim",
