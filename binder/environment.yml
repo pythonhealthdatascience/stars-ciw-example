@@ -11,7 +11,8 @@ dependencies:
   - scipy=1.10.1
   - pip:
     - ciw==2.3.1
-    - shiny==0.4.0
-    - shinyswatch==0.2.4
-    - shinywidgets==0.2.1
-    - rsconnect-python==1.19.1
+    - faicons==0.2.2
+    - shiny==1.1.0
+    - shinyswatch==0.7.0
+    - shinywidgets==0.3.3
+    - rsconnect-python==1.24.0
