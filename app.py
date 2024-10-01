@@ -38,7 +38,9 @@ app_ui = ui.page_fluid(
     ui.row(
         # Logo
         ui.column(
-            1,  # Column width
+            # Column width
+            1,
+            # Logo
             ui.tags.div(
                 ui.tags.img(
                     src="stars_logo.png", height="100px"),
@@ -46,15 +48,44 @@ app_ui = ui.page_fluid(
         ),
         # Heading and introduction
         ui.column(
-            11,  # Column width
+            # Column width
+            11,
+            # Title
             ui.h1(
                 "Ciw Urgent Care Call Centre Model", style="margin-top: 10px;"),
+            # Introductory sentence
             ui.markdown("""
-This app is based on a 
-[ciw example](https://health-data-science-or.github.io/simpy-streamlit-tutorial/content/03_streamlit/13_ciw_backend.html) 
-that simulates a simple call centre model."""),
+                This app is based on a 
+                [ciw example](https://health-data-science-or.github.io/simpy-streamlit-tutorial/content/03_streamlit/13_ciw_backend.html) 
+                that simulates a simple call centre model.
+            """),
+            # Button to navigate to GitHub code
+            ui.input_action_button(
+                id="github_btn",
+                label="View code on GitHub" ,  
+                icon=icon_svg("github")
+            ),
+            ui.tags.script("""
+                document.getElementById('github_btn').onclick = function() {
+                    window.open('https://github.com/pythonhealthdatascience/stars-ciw-example/', '_blank');
+                };
+            """),
+            # Button to view model documentation
+            ui.input_action_button(
+                id="docs_btn",
+                label="View model documentation" ,  
+                icon=icon_svg("book")
+            ),
+            ui.tags.script("""
+                document.getElementById('docs_btn').onclick = function() {
+                    window.open('https://pythonhealthdatascience.github.io/stars-ciw-example/', '_blank');
+                };
+            """)
         ),
     ),
+
+    # Blank space
+    ui.div().add_style("height:20px;"),
 
     # Sidebar and main panel
     ui.navset_tab(
