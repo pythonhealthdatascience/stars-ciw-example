@@ -66,23 +66,18 @@ Live documentation including STRESS-DES reporting for the model and
 is available at: https://pythonhealthdatascience.github.io/stars-ciw-examplar
 """
 
-TABLEINFO = """
-### Average results across replications
-
-This table describes the average results for each metric across the replications, including:
-
-* Mean and standard deviation (std)
-* Minimum (min), first quartile (25%), median (50%), third quartile (75%) and
+TABLE_TITLE = "### Tabular results"
+TABLE_TOOLTIP = """
+Average results across replications: mean, standard deviation (std), minimum
+(min), first quartile (25%), median (50%), third quartile (75%) and
 maximum (max)
 """
 
-GRAPHINFO = """
-### Distribution of results between replications
-
-The graph shows the average wait time or utilisation from each replication,
-so the plot allows you to view how these vary between replications. Choose
-which metric you would like to view.
+GRAPH_TITLE = "### Graphical results"
+GRAPH_TOOLTIP = """
+Histogram plotting the average wait time or utilisation from each replication
 """
+GRAPH_INFO = "Please select a performance measure:"
 
 GITHUBLINK = "https://github.com/pythonhealthdatascience/stars-ciw-example/"
 DOCSLINK = "https://pythonhealthdatascience.github.io/stars-ciw-example/"
@@ -213,6 +208,7 @@ app_ui = ui.page_fluid(
                 # Main panel content
                 ui.output_ui("result_table_info"),
                 ui.output_data_frame("result_table"),
+                ui.div().add_style("height:20px;"),  # Blank space
                 ui.output_ui("result_graph_info"),
                 output_widget("histogram"),
             ),
@@ -223,6 +219,10 @@ app_ui = ui.page_fluid(
                      ui.markdown(SIMSOFTWARE),
                      ui.markdown(DOCS_LINK)),
     ),
+
+    # Blank space
+    ui.div().add_style("height:80px;"),
+
     theme = shinyswatch.theme.journal()
 )
 
@@ -254,6 +254,15 @@ def server(input: Inputs, output: Outputs, session: Session):
         # run multiple replications
         results = multiple_replications(user_experiment, n_reps=input.n_reps())
 
+        # Renaming metrics
+        metrics = {
+            '01_mean_waiting_time': 'Time waiting for operator (mins)',
+            '02_operator_util': 'Operator utilisation (%)',
+            '03_mean_nurse_waiting_time': 'Time waiting for nurse (mins)',
+            '04_nurse_util': 'Nurse utilisation (%)'
+        }
+        results.columns = results.columns.map(metrics)
+
         return results
 
     def summary_results(replications):
@@ -266,18 +275,9 @@ def server(input: Inputs, output: Outputs, session: Session):
         '''
         summary = replications.describe().round(2).T
 
-        # Resetting index because cannot figure out how to show index
+        # Set index as a column
         summary = summary.reset_index() 
         summary = summary.rename(columns={'index': 'metric'})
-
-        # Renaming columns
-        metrics = {
-            '01_mean_waiting_time': 'Time waiting for operator (mins)',
-            '02_operator_util': 'Operator utilisation (%)',
-            '03_mean_nurse_waiting_time': 'Time waiting for nurse (mins)',
-            '04_nurse_util': 'Nurse utilisation (%)'
-        }
-        summary['metric'] = summary['metric'].map(metrics)
 
         # Drop count, as that is implicit from chosen number of replications
         summary = summary.drop('count', axis=1)
@@ -343,13 +343,6 @@ def server(input: Inputs, output: Outputs, session: Session):
         # add dropdown menus to the figure
         fig.update_layout(showlegend=False, 
                           updatemenus=updatemenu)
-        
-        # add label for selecting performance measure
-        fig.update_layout(
-        annotations=[
-            dict(text="Performance measure", x=0, xref="paper", y=1.25, 
-                yref="paper", align="left", showarrow=False)
-        ])
         return fig
 
     @render.text
@@ -367,7 +360,15 @@ def server(input: Inputs, output: Outputs, session: Session):
         Reactive event to when the run simulation button is clicked.
         Produces title and paragraph of information about the results table.
         '''
-        return ui.markdown(TABLEINFO)
+        # Heading
+        title = ui.markdown(TABLE_TITLE)
+        # Icon with tooltip
+        info_icon = ui.tooltip(
+            # Class ms-2 adds a margin to the left of the icon
+            icon_svg("circle-info").add_class("ms-2"),
+            TABLE_TOOLTIP
+        )
+        return ui.div(title, info_icon, class_="d-flex align-items-center")
 
     @render.data_frame
     def result_table():
@@ -384,7 +385,23 @@ def server(input: Inputs, output: Outputs, session: Session):
         Reactive event to when the run simulation button is clicked.
         Produces title and paragraph of information about the histogram.
         '''
-        return ui.markdown(GRAPHINFO)
+        # Heading
+        title = ui.markdown(GRAPH_TITLE)
+        # Icon with tooltip
+        info_icon = ui.tooltip(
+            # Class ms-2 adds a margin to the left of the icon
+            icon_svg("circle-info").add_class("ms-2"),
+            GRAPH_TOOLTIP
+        )
+        # Additional sentence before figure (but remove margin)
+        text = ui.HTML(f'<p style="margin: 0;">{GRAPH_INFO}</p>')
+
+        # Combine to return from function
+        content = ui.span(
+            ui.div(title, info_icon, class_="d-flex align-items-center"),
+            text
+        )
+        return content
 
     @render_widget
     def histogram():
