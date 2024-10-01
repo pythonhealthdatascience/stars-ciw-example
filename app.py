@@ -1,4 +1,9 @@
 # CIW Model Application created with Shiny for Python (Core syntax, not Express)
+
+# -----------------------------------------------------------------------------
+# Library imports
+# -----------------------------------------------------------------------------
+
 from shiny import (App, ui, render, reactive, Inputs, Outputs, Session)
 from shinywidgets import output_widget, render_widget
 import shinyswatch
@@ -9,6 +14,10 @@ from faicons import icon_svg
 
 # Import the wrapper objects for model interaction.
 from ciw_model import Experiment, multiple_replications
+
+# -----------------------------------------------------------------------------
+# Static text
+# -----------------------------------------------------------------------------
 
 MODELDESCRIPTION = """
 This app is based on a 
@@ -28,27 +37,60 @@ utilisation (i.e. the proportion of time that operators or nurses spent on
 call, whilst on duty).
 """
 
-ABOUT = """## About
+ABOUT = """
+## About
 
 This work is produced using entirely free and open-source software in python.
 
-> This model is independent research supported by the National Institute for Health Research 
-Applied Research Collaboration South West Peninsula. 
-The views expressed in this publication are those of the author(s) and not necessarily 
-those of the National Institute for Health Research or the Department of Health and Social Care."""
-
-
-SIMSOFTWARE = """## Modelling and Simulation Software
-
-The model is written in python3 and `ciw`. The simulation libary `ciw` is a network based DES package.
-
-> Detailed documentation for `ciw` and additional models can be found here: https://ciw.readthedocs.io
-
+> This model is independent research supported by the National Institute for
+Health Research Applied Research Collaboration South West Peninsula. The views
+expressed in this publication are those of the author(s) and not necessarily 
+those of the National Institute for Health Research or the Department of Health
+and Social Care.
 """
 
-DOCS_LINK = """## Model Documentation
+SIMSOFTWARE = """
+## Modelling and Simulation Software
+
+The model is written in python3 and `ciw`. The simulation libary `ciw` is a
+network based DES package.
+
+> Detailed documentation for `ciw` and additional models can be found here:
+https://ciw.readthedocs.io
+"""
+
+DOCS_LINK = """
+## Model Documentation
+
 Live documentation including STRESS-DES reporting for the model and 
-is available at: https://pythonhealthdatascience.github.io/stars-ciw-examplar"""
+is available at: https://pythonhealthdatascience.github.io/stars-ciw-examplar
+"""
+
+TABLEINFO = """
+### Average results across replications
+
+This table describes the average results for each metric across the replications, including:
+
+* Mean and standard deviation (std)
+* Minimum (min), first quartile (25%), median (50%), third quartile (75%) and
+maximum (max)
+"""
+
+GRAPHINFO = """
+### Distribution of results between replications
+
+The graph shows the average wait time or utilisation from each replication,
+so the plot allows you to view how these vary between replications. Choose
+which metric you would like to view.
+"""
+
+GITHUBLINK = "https://github.com/pythonhealthdatascience/stars-ciw-example/"
+DOCSLINK = "https://pythonhealthdatascience.github.io/stars-ciw-example/"
+
+# -----------------------------------------------------------------------------
+# User interface: define layout and structure of app
+# e.g. input controls, output displays
+# -----------------------------------------------------------------------------
 
 app_ui = ui.page_fluid(
 
@@ -81,10 +123,10 @@ app_ui = ui.page_fluid(
                 label="View code on GitHub" ,  
                 icon=icon_svg("github")
             ),
-            ui.tags.script("""
-                document.getElementById('github_btn').onclick = function() {
-                    window.open('https://github.com/pythonhealthdatascience/stars-ciw-example/', '_blank');
-                };
+            ui.tags.script(f"""
+                document.getElementById('github_btn').onclick = function() {{
+                    window.open('{GITHUBLINK}', '_blank');
+                }};
             """),
             # Button to view model documentation
             ui.input_action_button(
@@ -92,10 +134,10 @@ app_ui = ui.page_fluid(
                 label="View model documentation" ,  
                 icon=icon_svg("book")
             ),
-            ui.tags.script("""
-                document.getElementById('docs_btn').onclick = function() {
-                    window.open('https://pythonhealthdatascience.github.io/stars-ciw-example/', '_blank');
-                };
+            ui.tags.script(f"""
+                document.getElementById('docs_btn').onclick = function() {{
+                    window.open('{DOCSLINK}', '_blank');
+                }};
             """),
             # Resize width to fill space, alongside the fixed logo column
             style="flex: 1; min-width: 0;",
@@ -164,18 +206,25 @@ app_ui = ui.page_fluid(
                                            class_="btn-primary"),
                 ),
                 # Main panel content
+                ui.output_ui("result_table_info"),
                 ui.output_data_frame("result_table"),
+                ui.output_ui("result_graph_info"),
                 output_widget("histogram"),
             ),
         ),
         # Panel for the about page
-        ui.nav_panel("About", 
-               ui.markdown(ABOUT),
-               ui.markdown(SIMSOFTWARE),
-               ui.markdown(DOCS_LINK)),
+        ui.nav_panel("About",
+                     ui.markdown(ABOUT),
+                     ui.markdown(SIMSOFTWARE),
+                     ui.markdown(DOCS_LINK)),
     ),
     theme = shinyswatch.theme.journal()
 )
+
+# -----------------------------------------------------------------------------
+# Server: define logic and behaviour of app
+# e.g. reactivity, rendering outputs
+# -----------------------------------------------------------------------------
 
 def server(input: Inputs, output: Outputs, session: Session):
 
@@ -288,7 +337,7 @@ def server(input: Inputs, output: Outputs, session: Session):
              
         # add dropdown menus to the figure
         fig.update_layout(showlegend=False, 
-                        updatemenus=updatemenu)
+                          updatemenus=updatemenu)
         
         # add label for selecting performance measure
         fig.update_layout(
@@ -298,6 +347,15 @@ def server(input: Inputs, output: Outputs, session: Session):
         ])
         return fig
 
+    @render.text
+    @reactive.event(input.run_sim)
+    def result_table_info():
+        '''
+        Reactive event to when the run simulation button is clicked.
+        Produces title and paragraph of information about the results table.
+        '''
+        return ui.markdown(TABLEINFO)
+
     @render.data_frame
     def result_table():
         '''
@@ -306,6 +364,15 @@ def server(input: Inputs, output: Outputs, session: Session):
         '''
         return summary_results(replication_results())
     
+    @render.text
+    @reactive.event(input.run_sim)
+    def result_graph_info():
+        '''
+        Reactive event to when the run simulation button is clicked.
+        Produces title and paragraph of information about the histogram.
+        '''
+        return ui.markdown(GRAPHINFO)
+
     @render_widget
     def histogram():
         '''
@@ -332,6 +399,10 @@ def server(input: Inputs, output: Outputs, session: Session):
         ui.notification_show("Simulation running. Please wait", type='warning')
         replication_results.set(run_simulation())
         ui.notification_show("Simulation complete.", type='message')
+
+# -----------------------------------------------------------------------------
+# Combine ui and server to create app
+# -----------------------------------------------------------------------------
 
 www_dir = Path(__file__).parent / "www"
 app = App(app_ui, server, static_assets=www_dir)
