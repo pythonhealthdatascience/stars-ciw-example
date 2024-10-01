@@ -87,6 +87,9 @@ which metric you would like to view.
 GITHUBLINK = "https://github.com/pythonhealthdatascience/stars-ciw-example/"
 DOCSLINK = "https://pythonhealthdatascience.github.io/stars-ciw-example/"
 
+REP_ERROR = """<p style='color: #CC5500;'><b>Error: Set number of replications
+to 1 or above</b></p>"""
+
 # -----------------------------------------------------------------------------
 # User interface: define layout and structure of app
 # e.g. input controls, output displays
@@ -199,6 +202,8 @@ app_ui = ui.page_fluid(
                                         min=1),
                         "How many times to run the model (minimum 1)"
                     ),
+                    # Error message if number of replications is set to <1
+                    ui.output_ui("rep_error"),
 
                     # run simulation model button
                     ui.input_action_button(id="run_sim",
@@ -348,6 +353,14 @@ def server(input: Inputs, output: Outputs, session: Session):
         return fig
 
     @render.text
+    def rep_error():
+        '''
+        If number of replications is set below 1, display error message
+        '''
+        if input.n_reps() < 1:
+            return ui.HTML(REP_ERROR)
+
+    @render.text
     @reactive.event(input.run_sim)
     def result_table_info():
         '''
@@ -359,8 +372,8 @@ def server(input: Inputs, output: Outputs, session: Session):
     @render.data_frame
     def result_table():
         '''
-        Reactive event to when the run simulation button
-        is clicked.
+        Reactive event to when the run simulation button is clicked.
+        Produces a summary table of results (mean, median, std, etc.)
         '''
         return summary_results(replication_results())
     
@@ -399,6 +412,17 @@ def server(input: Inputs, output: Outputs, session: Session):
         ui.notification_show("Simulation running. Please wait", type='warning')
         replication_results.set(run_simulation())
         ui.notification_show("Simulation complete.", type='message')
+
+    @reactive.Effect
+    def _():
+        '''
+        Reactive effect to enable/disable the button based on n_reps input.
+        '''
+        # Disable button if n_reps is below 1, otherwise enable it
+        if input.n_reps() < 1:
+            ui.update_action_button("run_sim", disabled=True)
+        else:
+            ui.update_action_button("run_sim", disabled=False)
 
 # -----------------------------------------------------------------------------
 # Combine ui and server to create app
