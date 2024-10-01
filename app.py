@@ -1,11 +1,13 @@
+# CIW Model Application created with Shiny for Python (Core syntax, not Express)
 from shiny import (App, ui, render, reactive, Inputs, Outputs, Session)
 from shinywidgets import output_widget, render_widget
 import shinyswatch
 import plotly.graph_objects as go
 import pandas as pd
 from pathlib import Path
+from faicons import icon_svg
 
-# import the wrapper objects for model interaction.
+# Import the wrapper objects for model interaction.
 from ciw_model import Experiment, multiple_replications
 
 ABOUT = """## About
@@ -31,7 +33,6 @@ Live documentation including STRESS-DES reporting for the model and
 is available at: https://pythonhealthdatascience.github.io/stars-ciw-examplar"""
 
 app_ui = ui.page_fluid(
-    shinyswatch.theme.journal(),
 
     # Page header
     ui.row(
@@ -54,13 +55,15 @@ This app is based on a
 that simulates a simple call centre model."""),
         ),
     ),
-    
+
+    # Sidebar and main panel
     ui.navset_tab(
-        ui.nav("Interactive simulation", 
-
-
+        # Panel for the simulation page
+        ui.nav_panel("Interactive simulation", 
             ui.layout_sidebar(
-                ui.panel_sidebar(
+                # Sidebar content
+                ui.sidebar(
+                    
                     # number of call operators
                     ui.input_slider(id="n_operators",
                                     label="Call operators",
@@ -77,13 +80,16 @@ that simulates a simple call centre model."""),
                                     value=9,
                                     ticks=False),
                     
-                    # chance of nurse call back
-                    ui.input_slider(id="chance_callback",
-                                    label="Probability of nurse callback",
-                                    min=0.0,
-                                    max=1.0,
-                                    value=0.4,
-                                    ticks=False),
+                    ui.tooltip(
+                        # chance of nurse call back
+                        ui.input_slider(id="chance_callback",
+                                        label="Probability of nurse callback",
+                                        min=0.0,
+                                        max=1.0,
+                                        value=0.4,
+                                        ticks=False),
+                        "Set the probability of nurse callback: 0 means never, 0.5 means 50% of the time, and 1 means always."
+                    ),
 
                     # Number of replications
                     ui.input_numeric(id="n_reps",
@@ -95,21 +101,19 @@ that simulates a simple call centre model."""),
                     ui.input_action_button(id="run_sim",
                                            label="Run Simulation",
                                            class_="btn-primary"),
-
-                    width=2
                 ),
-                ui.panel_main(
-
-                    ui.output_data_frame("result_table"),
-                    output_widget("histogram"),
-                ),
+                # Main panel content
+                ui.output_data_frame("result_table"),
+                output_widget("histogram"),
             ),
         ),
-        ui.nav("About", 
+        # Panel for the about page
+        ui.nav_panel("About", 
                ui.markdown(ABOUT),
                ui.markdown(SIMSOFTWARE),
                ui.markdown(DOCS_LINK)),
-    )
+    ),
+    theme = shinyswatch.theme.journal()
 )
 
 def server(input: Inputs, output: Outputs, session: Session):
@@ -233,7 +237,6 @@ def server(input: Inputs, output: Outputs, session: Session):
         ])
         return fig
 
-    @output
     @render.data_frame
     def result_table():
         '''
@@ -242,7 +245,6 @@ def server(input: Inputs, output: Outputs, session: Session):
         '''
         return summary_results(replication_results())
     
-    @output
     @render_widget
     def histogram():
         '''
@@ -253,7 +255,7 @@ def server(input: Inputs, output: Outputs, session: Session):
         plotly.figure
         '''
         return create_user_filtered_hist(replication_results())
-    
+
     @reactive.Effect
     @reactive.event(input.run_sim)
     async def _():
