@@ -342,10 +342,15 @@ def server(input: Inputs, output: Outputs, session: Session):
         buttons = []
         for col in results.columns:
             buttons.append(
-                dict(method='restyle',
-                     label=col,
-                     visible=True,
-                     args=[{'x':[results[col]], 'type':'histogram'}, [0]]))
+                dict(
+                    method='update',
+                    label=col,
+                    args=[
+                        {'x': [results[col]], 'type': 'histogram'},  # Update x data
+                        {'xaxis.title.text': col}  # Update the x-axis title
+                    ]
+                )
+            )
 
         # Update the figure...
         fig.update_layout(
@@ -366,7 +371,7 @@ def server(input: Inputs, output: Outputs, session: Session):
    
             xaxis=dict(
                 # Add a X axis label
-                title=col),
+                title=results.columns[0]),  # Initially set to first metric
 
             yaxis=dict(
                 # Ensure ticks are evenly spaced and step of 1
