@@ -74,7 +74,7 @@ DOCS_LINK = """
 ## Model Documentation
 
 Live documentation including STRESS-DES reporting for the model and 
-is available at: https://pythonhealthdatascience.github.io/stars-ciw-examplar
+is available at: https://pythonhealthdatascience.github.io/stars-ciw-example/
 """
 
 TABLE_TITLE = "### Tabular results"
@@ -86,7 +86,8 @@ maximum (max)
 
 GRAPH_TITLE = "### Graphical results"
 GRAPH_TOOLTIP = """
-Histogram plotting the average wait time or utilisation from each replication
+Histogram plotting the average wait time or utilisation from each replication.
+Will be unhelpful if all results are 0.
 """
 GRAPH_INFO = "Please select a performance measure:"
 
@@ -226,11 +227,18 @@ app_ui = ui.page_fluid(
         ),
         # Panel for the about page
         ui.nav_panel("About",
-                     ui.markdown(MODELDESCRIPTION),
-                     ui.tags.img(src="model_logic.png"),
-                     ui.markdown(ABOUT),
-                     ui.markdown(SIMSOFTWARE),
-                     ui.markdown(DOCS_LINK)),
+                     ui.card(
+                         ui.markdown(MODELDESCRIPTION),
+                         # Center and prevent resizing of image
+                         ui.tags.div(
+                            ui.tags.img(src="model_logic.png",
+                                        style="max-width: 100%; height: auto;"),
+                            style="text-align: center;"
+                        )
+                     ),
+                     ui.card(ui.markdown(ABOUT)),
+                     ui.card(ui.markdown(SIMSOFTWARE)),
+                     ui.card(ui.markdown(DOCS_LINK)))
     ),
 
     # Blank space
