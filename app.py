@@ -19,10 +19,14 @@ from ciw_model import Experiment, multiple_replications
 # Static text
 # -----------------------------------------------------------------------------
 
-MODELDESCRIPTION = """
+INTRO = """
 This app is based on a 
 [ciw example](https://health-data-science-or.github.io/simpy-streamlit-tutorial/content/03_streamlit/13_ciw_backend.html) 
 that simulates a simple call centre model.
+"""
+
+MODELDESCRIPTION = """
+## Model Summary
 
 In this model:
 
@@ -113,8 +117,8 @@ app_ui = ui.page_fluid(
             # Title
             ui.h1(
                 "Ciw Urgent Care Call Centre Model", style="margin-top: 10px;"),
-            # Introductory paragraph
-            ui.markdown(MODELDESCRIPTION),
+            # Intro sentence
+            ui.markdown(INTRO),
             # Button to navigate to GitHub code
             ui.input_action_button(
                 id="github_btn",
@@ -215,6 +219,8 @@ app_ui = ui.page_fluid(
         ),
         # Panel for the about page
         ui.nav_panel("About",
+                     ui.markdown(MODELDESCRIPTION),
+                     ui.tags.img(src="model_logic.png"),
                      ui.markdown(ABOUT),
                      ui.markdown(SIMSOFTWARE),
                      ui.markdown(DOCS_LINK)),
