@@ -293,7 +293,7 @@ def server(input: Inputs, output: Outputs, session: Session):
     def create_user_filtered_hist(results):
         '''
         Create a plotly histogram that includes a drop down list that allows a user
-        to select which KPI is displayed as a histogram
+        to select which key performance indicator (KPI) is displayed as a histogram
         
         Params:
         -------
@@ -313,42 +313,54 @@ def server(input: Inputs, output: Outputs, session: Session):
         
         2. https://plotly.com/python/dropdowns/
         '''
-        # create a figure
-        fig = go.Figure()
-
-        # set up a trace
-        fig.add_trace(go.Histogram(x=results[results.columns[0]]))
-
+        # Create figure with first metric column by default
+        fig = go.Figure(data=[go.Histogram(
+            x=results[results.columns[0]],
+            # Label when hover over bar, with <extra></extra> preventing it
+            # from appending "trace 0" to the end
+            hovertemplate='Result of %{x} was found in %{y} replications<extra></extra>')])
+        
+        # Create dropdown menu to choose between metric columns to plot
         buttons = []
-
-        # create list of drop down items - KPIs
-        # the params in the code would need to vary depending on the type of chart.
-        # The histogram will show the first KPI by default
         for col in results.columns:
-            buttons.append(dict(method='restyle',
-                                label=col,
-                                visible=True,
-                                args=[{'x':[results[col]],
-                                    'type':'histogram'}, [0]],
-                                )
-                        )
+            buttons.append(
+                dict(method='restyle',
+                     label=col,
+                     visible=True,
+                     args=[{'x':[results[col]], 'type':'histogram'}, [0]]))
 
-        # create update menu and parameters
-        updatemenu = []
-        your_menu = dict()
-        updatemenu.append(your_menu)
+        # Update the figure...
+        fig.update_layout(
 
-        updatemenu[0]['buttons'] = buttons
-        updatemenu[0]['direction'] = 'down'
-        updatemenu[0]['showactive'] = True
-        updatemenu[0]['x'] = 0.25
-        updatemenu[0]['y'] = 1.1
-        updatemenu[0]['xanchor'] = 'right'
-        updatemenu[0]['yanchor'] = 'bottom'
-             
-        # add dropdown menus to the figure
-        fig.update_layout(showlegend=False, 
-                          updatemenus=updatemenu)
+            # Add the dropdown menu to the layout
+            updatemenus=[{
+                'buttons': buttons,   # List of buttons created above
+                'direction': 'down',  # Direction of dropdown
+                'showactive': True,   # Keep the selected button highlighted
+                'x': 0.25,            # X position of the menu
+                'y': 1.1,             # Y position of the menu
+                'xanchor': 'right',   # X anchor point
+                'yanchor': 'bottom',  # Y anchor point
+            }],
+
+            # Hide the legend
+            showlegend=False,
+   
+            xaxis=dict(
+                # Add a X axis label
+                title=col),
+
+            yaxis=dict(
+                # Ensure ticks are evenly spaced and step of 1
+                tickmode='linear', dtick=1,
+                # Add a Y axis label
+                title='Number of replications'),
+
+            # Alter the displayed plotly toolbar
+            modebar={'remove': ['zoom', 'pan', 'lasso', 'zoomIn2d', 'zoomOut2d',
+                                'reset', 'select', 'autoscale']}
+        )
+
         return fig
 
     @render.text
