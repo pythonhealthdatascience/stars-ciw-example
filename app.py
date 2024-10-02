@@ -19,6 +19,13 @@ from ciw_model import Experiment, multiple_replications
 # Static text
 # -----------------------------------------------------------------------------
 
+MODAL = """
+It provides a Shiny for Python interface to a `ciw` discrete-event simulation
+model. This allows users to easily experiment with the simulation model.
+
+The web app is hosted on a free tier of shinyapps.io.
+"""
+
 INTRO = """
 This app is based on a 
 [ciw example](https://health-data-science-or.github.io/simpy-streamlit-tutorial/content/03_streamlit/13_ciw_backend.html) 
@@ -117,7 +124,7 @@ app_ui = ui.page_fluid(
             # Title
             ui.h1(
                 "Ciw Urgent Care Call Centre Model", style="margin-top: 10px;"),
-            # Intro sentence
+            # Intro section
             ui.markdown(INTRO),
             # Button to navigate to GitHub code
             ui.input_action_button(
@@ -197,7 +204,7 @@ app_ui = ui.page_fluid(
                         # but user can still override minimum by typing
                         ui.input_numeric(id="n_reps",
                                         label="Replications",
-                                        value=5,
+                                        value=10,
                                         min=1),
                         "How many times to run the model (minimum 1)"
                     ),
@@ -238,6 +245,17 @@ app_ui = ui.page_fluid(
 # -----------------------------------------------------------------------------
 
 def server(input: Inputs, output: Outputs, session: Session):
+
+    # Display about modal when app is opened
+    ui.modal_show(
+        ui.modal(
+            ui.markdown('This application has been developed as part of STARS:'),
+            ui.tags.img(src="stars_banner.png", height="100px"),
+            ui.div().add_style("height:20px;"),  # Blank space
+            ui.markdown(MODAL),
+            title="Ciw Urgent Care Call Centre Model"
+        )
+    )
 
     # reactive value for replication results.
     replication_results = reactive.Value()
