@@ -3,7 +3,7 @@
 
 cff-version: 1.2.0
 title: >-
-  Towards Sharing Tools, Artifacts, and Reproducible
+  Towards Sharing Tools, Artefacts, and Reproducible
   Simulation: a ciw model examplar
 message: >-
   If you use this software, please cite it using the
@@ -18,8 +18,13 @@ authors:
     family-names: Harper
     affiliation: University of Exeter
     orcid: 'https://orcid.org/0000-0001-5274-5037'
-repository-code: 'https://github.com/pythonhealthdatascience/ciw_shinyapp'
-url: 'https://pythonhealthdatascience.github.io/ciw_shinyapp/'
+  - given-names: Amy
+    family-names: Heather
+    email: a.heather2@exeter.ac.uk
+    affiliation: University of Exeter Medical School, Exeter, UK
+    orcid: 'https://orcid.org/0000-0002-6596-3479'
+repository-code: 'https://github.com/pythonhealthdatascience/stars-ciw-example'
+url: 'https://pythonhealthdatascience.github.io/stars-ciw-example/'
 keywords:
   - Discrete-event simulation
   - Health services research
