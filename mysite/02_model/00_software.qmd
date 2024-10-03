@@ -4,6 +4,6 @@ title: "Simulation software"
 
 `ciw` is an free and open source software package for discrete-event simulation of open queuing networks. 
 
-More information about ciw and how to build queuing network models can be found here: https://ciw.readthedocs.io
+More information about ciw and how to build queuing network models can be found here: <https://ciw.readthedocs.io>
 
->  Geraint I. Palmer, Vincent A. Knight, Paul R. Harper & Asyl L. Hawa (2019) Ciw: An open-source discrete event simulation library, Journal of Simulation, 13:1, 68-82, DOI: 10.1080/17477778.2018.1473909  https://doi.org/10.1080/17477778.2018.1473909
+>  Geraint I. Palmer, Vincent A. Knight, Paul R. Harper & Asyl L. Hawa (2019) Ciw: An open-source discrete event simulation library, Journal of Simulation, 13:1, 68-82, DOI: 10.1080/17477778.2018.1473909 <https://doi.org/10.1080/17477778.2018.1473909>
