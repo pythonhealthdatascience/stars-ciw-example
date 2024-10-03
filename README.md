@@ -1,18 +1,18 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pythonhealthdatascience/stars-ciw-examplar/HEAD)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10051495.svg)](https://doi.org/10.5281/zenodo.10051495)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10051494.svg)](https://doi.org/10.5281/zenodo.10051494)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/)
 [![Read the Docs](https://readthedocs.org/projects/pip/badge/?version=latest)](https://pythonhealthdatascience.github.io/stars-ciw-examplar/)
 [![License: MIT](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
 [![License: MIT](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
 
-#   Towards Sharing Tools and Artifacts for Reuable Simulation: a `ciw` model example
+#   Towards Sharing Tools and Artefacts for Reuable Simulation: a `ciw` model example
 
 ## Overview
 
-The materials and methods in this repository support work towards developing the S.T.A.R.S healthcare framework (**S**haring **T**ools and **A**rtifacts for **R**eusable **S**imulations in healthcare).  The code and written materials here demonstrate the application of S.T.A.R.S' version 1 to sharing a `ciw` discrete-event simuilation model and associated research artifacts.  
+The materials and methods in this repository support work towards developing the S.T.A.R.S healthcare framework (**S**haring **T**ools and **A**rtefacts for **R**eusable **S**imulations in healthcare).  The code and written materials here demonstrate the application of S.T.A.R.S' version 1 to sharing a `ciw` discrete-event simuilation model and associated research artefacts.  
 
-* All artifacts in this repository are linked to study researchers via ORCIDs;
+* All artefacts in this repository are linked to study researchers via ORCIDs;
 * Model code is made available under a GNU Public License version 3;
 * Python dependencies are managed through `conda`;`
 * The code builds a Shiny for Python web application that can be used to run the model (web app);
@@ -28,20 +28,21 @@ The materials and methods in this repository support work towards developing the
 
 ## Citation
 
-> Monks, T., & Harper, A. (2023). Towards Sharing Tools, Artifacts, and Reproducible Simulation: a ciw model example (v1.0.1). Zenodo. https://doi.org/10.5281/zenodo.10051495
+> Monks, T., & Harper, A. (2023). Towards Sharing Tools, Artefacts, and Reproducible Simulation: a ciw model example (v1.0.1). Zenodo. https://doi.org/10.5281/zenodo.10051494
 
 ```bibtex
 @software{monks_2023_10051495,
   author       = {Monks, Thomas and
-                  Harper, Alison},
-  title        = {{Towards Sharing Tools, Artifacts, and Reproducible 
+                  Harper, Alison and
+                  Heather, Amy},
+  title        = {{Towards Sharing Tools, Artefacts, and Reproducible 
                    Simulation: a ciw model example}},
   month        = oct,
   year         = 2023,
   publisher    = {Zenodo},
   version      = {v1.0.1},
-  url	       = {https://doi.org/10.5281/zenodo.10051495},#
-  doi          = {10.5281/zenodo.10051495},
+  url	       = {https://doi.org/10.5281/zenodo.10051494},
+  doi          = {10.5281/zenodo.100514954},
 }
 ```
 
@@ -55,7 +56,7 @@ We reuse a stylised urgent care call centre model that we have [previously publi
 
 ## Shiny web app
 
-The `ciw` model has been given a Shiny for Python interface.  This allows users to easily experiment with the simulation model.  The web app is hosted on a free tier of shinyapps.io.  The app can be access at [https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar](https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar)
+The `ciw` model has been given a Shiny for Python interface.  This allows users to easily experiment with the simulation model.  The web app is hosted on a free tier of shinyapps.io.  The app can be access at <https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar>.
 
 > This is a free service. If the app has not been used for a while it will be "asleep" to save resources. Please be patient while the app "wakes up".  This will be a short time.
 

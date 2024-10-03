@@ -1,6 +1,5 @@
 ---
-title: "Towards Sharing Tools, Artifacts, and Reproducible Simulation: a `ciw` model examplar"
-# date: 2008-02-29
+title: "Towards Sharing Tools, Artefacts, and Reproducible Simulation: a `ciw` model examplar"
 author:
   - name: Thomas Monks
     id: tm
@@ -20,14 +19,23 @@ author:
         city: Exeter 
         state: Devon
         url: www.exeter.ac.uk
+  - name: Amy Heather
+    id: amy
+    orcid: 0000-0002-6596-3479
+    email: a.heather2@exeter.ac.uk
+    affiliation: 
+      - name: University of Exeter
+        city: Exeter 
+        state: Devon
+        url: www.exeter.ac.uk
 abstract: | 
-  The materials and methods in this documentation support work towards developing the **S.T.A.R.S healthcare framework** (**S**haring **T**ools and **A**rtifacts for **R**eproducible **S**imulations in healthcare).  Long term S.T.A.R.S aims to support researchers share open simulation models regardless of language choice, improve the quality of sharing, and reduce the workload required to meet high standards of open science for the modelling and simulation community.
+  The materials and methods in this documentation support work towards developing the **S.T.A.R.S healthcare framework** (**S**haring **T**ools and **A**rtefacts for **R**eproducible **S**imulations in healthcare).  Long term S.T.A.R.S aims to support researchers share open simulation models regardless of language choice, improve the quality of sharing, and reduce the workload required to meet high standards of open science for the modelling and simulation community.
 
-  The code and written materials here demonstrate the application of S.T.A.R.S' version 1 to sharing a `ciw` discrete-event simuilation model and associated research artifacts:  
+  The code and written materials here demonstrate the application of S.T.A.R.S' version 1 to sharing a `ciw` discrete-event simuilation model and associated research artefacts:  
   
-  * All artifacts in this repository are linked to study researchers via ORCIDs;
+  * All artefacts in this repository are linked to study researchers via ORCIDs;
   * Model code is made available under a GNU Public License version 3;
-  * Python dependencies are managed through `conda`;`
+  * Python dependencies are managed through `conda`;
   * The code builds a Shiny for Python web application that can be used to run the model (web app);
   * The python code itself can be viewed and executed in Jupyter notebooks via [Binder](https://mybinder.org); 
   * The model is documented and explained in a quarto website served up by GitHub pages;
@@ -42,6 +50,6 @@ copyright:
   year: 2023
 citation: 
   container-title: Zenodo
-  doi: 10.5555/12345678_fake
+  doi: 10.5281/zenodo.10051494
 funding: "The authors received no specific funding for this work."
 ---
