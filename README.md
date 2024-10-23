@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
 [![License: MIT](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
 
-#   Towards Sharing Tools and Artefacts for Reuable Simulation: a `ciw` model example
+#   Towards Sharing Tools and Artefacts for Reusable Simulation: a `ciw` model example
 
 ## Overview
 
