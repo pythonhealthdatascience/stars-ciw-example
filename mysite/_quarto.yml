@@ -21,10 +21,11 @@ project:
 #   dark: darkly 
     
 website:
-  title: "S.T.A.R.S"
-  repo-url: https://github.com/pythonhealthdatascience/ciw_shinyapp
+  title: "STARS"
+  repo-url: https://github.com/pythonhealthdatascience/stars-ciw-example
   repo-actions: [edit, issue]
   sidebar:
+    logo: stars_ciw.png
     style: "docked"
     search: true
     contents:
@@ -51,13 +52,13 @@ website:
       - icon: github
         menu:
           - text: Source Code
-            url:  https://github.com/pythonhealthdatascience/ciw_shinyapp
+            url:  https://github.com/pythonhealthdatascience/stars-ciw-example
           - text: Report a Bug
-            url:  https://github.com/pythonhealthdatascience/ciw_shinyapp/issues
+            url:  https://github.com/pythonhealthdatascience/stars-ciw-example/issues
       - icon: rocket-takeoff-fill
         menu:
           - text: Launch in Binder
-            url: https://mybinder.org/v2/gh/pythonhealthdatascience/ciw_shinyapp/HEAD
+            url: https://mybinder.org/v2/gh/pythonhealthdatascience/stars-ciw-example/HEAD
 
 format:
   html:

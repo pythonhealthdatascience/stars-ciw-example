@@ -20,7 +20,7 @@ Results are generated using multiple independent replications. No warm up period
 ## 1.3 Experimentation aims
 
 * Increasing call operator capacity by +1
-* Increasing advacned nurse practitioner capacity by +1
+* Increasing advanced nurse practitioner capacity by +1
 * Increasing chance of nurse callback by +5%
 
 

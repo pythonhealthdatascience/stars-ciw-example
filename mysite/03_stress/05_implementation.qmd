@@ -6,25 +6,15 @@ title: "5. Implementation"
 
 The simulation model was developed using python 3.9 and `ciw` 2.3.  `ciw` details are here: [https://ciw.readthedocs.io](https://ciw.readthedocs.io)
 
-The web app was developed using *Shiny for Python* version 0.4.0
+The web app was developed using *Shiny for Python* version 1.1.0.
 
 The exact software versions are:
 
 ```yml
-matplotlib=3.7.1
-numpy=1.25.0
-pandas=2.0.2
-plotly=5.15.0
-pip=23.1.2
-python=3.9.16
-scipy=1.10.1
-ciw==2.3.1
-shiny==0.4.0
-shinyswatch==0.2.4
-shinywidgets==0.2.1
+{{< include  ../../binder/environment.yml >}}
 ```
 
-A [conda virtual environment](https://github.com/pythonhealthdatascience/ciw_shinyapp/blob/main/binder/environment.yml) is provided to manage versions on a local machine.
+A [conda virtual environment](https://github.com/pythonhealthdatascience/stars-ciw-example/blob/main/binder/environment.yml) is provided to manage versions on a local machine.
 
 ## 5.2 Random sampling 
 
