@@ -1,1 +1,1 @@
-Sitemap: https://pythonhealthdatascience.github.io/stars-ciw-examplar/sitemap.xml
+Sitemap: https://pythonhealthdatascience.github.io/stars-ciw-example/sitemap.xml
