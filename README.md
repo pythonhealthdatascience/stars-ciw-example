@@ -3,8 +3,9 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/)
 [![Read the Docs](https://readthedocs.org/projects/pip/badge/?version=latest)](https://pythonhealthdatascience.github.io/stars-ciw-examplar/)
-[![License: MIT](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
-[![License: MIT](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
+[![ORCID: Harper](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
+[![ORCID: Monks](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
+[![ORCID: Heather](https://img.shields.io/badge/ORCID-0000--0002--6596--3479-brightgreen)](https://orcid.org/0000-0002-6596-3479)
 
 #   Towards Sharing Tools and Artefacts for Reusable Simulation: a `ciw` model example
 
@@ -14,7 +15,7 @@ The materials and methods in this repository support work towards developing the
 
 * All artefacts in this repository are linked to study researchers via ORCIDs;
 * Model code is made available under a GNU Public License version 3;
-* Python dependencies are managed through `conda`;`
+* Python dependencies are managed through `conda`;
 * The code builds a Shiny for Python web application that can be used to run the model (web app);
 * The python code itself can be viewed and executed in Jupyter notebooks via [Binder](https://mybinder.org); 
 * The model is documented and explained in a quarto website served up by GitHub pages;
@@ -25,10 +26,11 @@ The materials and methods in this repository support work towards developing the
 
 [![ORCID: Harper](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
 [![ORCID: Monks](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
+[![ORCID: Heather](https://img.shields.io/badge/ORCID-0000--0002--6596--3479-brightgreen)](https://orcid.org/0000-0002-6596-3479)
 
 ## Citation
 
-> Monks, T., & Harper, A. (2023). Towards Sharing Tools, Artefacts, and Reproducible Simulation: a ciw model example (v1.0.1). Zenodo. https://doi.org/10.5281/zenodo.10051494
+> Monks, T., Harper, A., & Heather, A. (2023). Towards Sharing Tools, Artefacts, and Reproducible Simulation: a ciw model example (v1.0.1). Zenodo. https://doi.org/10.5281/zenodo.10051494
 
 ```bibtex
 @software{monks_2023_10051495,
