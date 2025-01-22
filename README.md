@@ -62,6 +62,8 @@ The `ciw` model has been given a Shiny for Python interface.  This allows users 
 
 > This is a free service. If the app has not been used for a while it will be "asleep" to save resources. Please be patient while the app "wakes up".  This will be a short time.
 
+🎉 This app has been adapted by [Sammi Rosser](https://github.com/Bergam0t) to incorporate an animation of the model created using the [vidigi](https://github.com/Bergam0t/vidigi) package. Check it our in her repository: <https://github.com/Bergam0t/ciw-example-animation>
+
 ## Online Notebooks via Binder
 
 The python code for the model has been setup to run online in Jupyter notebooks via binder [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pythonhealthdatascience/stars-ciw-examplar/HEAD)
