@@ -1,57 +1,13 @@
 [
   {
-    "objectID": "03_stress/05_implementation.html",
-    "href": "03_stress/05_implementation.html",
-    "title": "5. Implementation",
+    "objectID": "03_stress/06_code_access.html",
+    "href": "03_stress/06_code_access.html",
+    "title": "6 Code access",
     "section": "",
-    "text": "The simulation model was developed using python 3.9 and ciw 2.3. ciw details are here: https://ciw.readthedocs.io\nThe web app was developed using Shiny for Python version 1.1.0.\nThe exact software versions are:\nname: stars_pyshiny\nchannels:\n  - conda-forge\ndependencies:\n  - matplotlib=3.7.1\n  - numpy=1.25.0\n  - pandas=2.0.2\n  - plotly=5.15.0\n  - pip=23.1.2\n  - python=3.9.16\n  - scipy=1.10.1\n  - pip:\n    - ciw==2.3.1\n    - faicons==0.2.2\n    - shiny==1.1.0\n    - shinyswatch==0.7.0\n    - shinywidgets==0.3.3\n    - rsconnect-python==1.24.0\nA conda virtual environment is provided to manage versions on a local machine.",
+    "text": "6 Code access\nSimulation model code is available from the main branch of the Github repository: https://github.com/pythonhealthdatascience/stars-ciw-example. All simulation model code is contained within ciw_model.py.\n\nShiny web app\nThe ciw model has been given a Shiny for Python interface. This allows users to easily experiment with the simulation model. The web app is hosted on a free tier of shinyapps.io. The app can be accessed at https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar.\n\nThis is a free service. If the app has not been used for a while it will be “asleep” to save resources. Please be patient while the app “wakes up”. This will be a short time.\n\n\n\nOnline Notebooks via Binder\nThe python code for the model has been setup to run online in Jupyter notebooks via binder \n\nBinder is a free service. If it has not been used in a while Binder will need to re-containerise the code repository, and push to binderhub. This will take several minutes. After that the online environment will be quick to load.",
     "crumbs": [
       "STRESS reporting",
-      "5. Implementation"
-    ]
-  },
-  {
-    "objectID": "03_stress/05_implementation.html#software-or-programming-language",
-    "href": "03_stress/05_implementation.html#software-or-programming-language",
-    "title": "5. Implementation",
-    "section": "",
-    "text": "The simulation model was developed using python 3.9 and ciw 2.3. ciw details are here: https://ciw.readthedocs.io\nThe web app was developed using Shiny for Python version 1.1.0.\nThe exact software versions are:\nname: stars_pyshiny\nchannels:\n  - conda-forge\ndependencies:\n  - matplotlib=3.7.1\n  - numpy=1.25.0\n  - pandas=2.0.2\n  - plotly=5.15.0\n  - pip=23.1.2\n  - python=3.9.16\n  - scipy=1.10.1\n  - pip:\n    - ciw==2.3.1\n    - faicons==0.2.2\n    - shiny==1.1.0\n    - shinyswatch==0.7.0\n    - shinywidgets==0.3.3\n    - rsconnect-python==1.24.0\nA conda virtual environment is provided to manage versions on a local machine.",
-    "crumbs": [
-      "STRESS reporting",
-      "5. Implementation"
-    ]
-  },
-  {
-    "objectID": "03_stress/05_implementation.html#random-sampling",
-    "href": "03_stress/05_implementation.html#random-sampling",
-    "title": "5. Implementation",
-    "section": "5.2 Random sampling",
-    "text": "5.2 Random sampling\nciw’s source code indicates that it uses python’s random module for generating samples. Python uses the Mersenne Twister to generate uniform random numbers. https://docs.python.org/3/library/random.html",
-    "crumbs": [
-      "STRESS reporting",
-      "5. Implementation"
-    ]
-  },
-  {
-    "objectID": "03_stress/05_implementation.html#model-execution",
-    "href": "03_stress/05_implementation.html#model-execution",
-    "title": "5. Implementation",
-    "section": "5.3 Model execution",
-    "text": "5.3 Model execution\nciw uses an event scheduling approach similar to the three phase simulation worldview. More details https://ciw.readthedocs.io/en/latest/Background/mechanisms.html",
-    "crumbs": [
-      "STRESS reporting",
-      "5. Implementation"
-    ]
-  },
-  {
-    "objectID": "03_stress/05_implementation.html#system-specification",
-    "href": "03_stress/05_implementation.html#system-specification",
-    "title": "5. Implementation",
-    "section": "5.4 System Specification",
-    "text": "5.4 System Specification\nThe model was coded, tested, and run on Intel i9-9900K CPU with 64GB RAM running the Pop!_OS 20.04 Linux.",
-    "crumbs": [
-      "STRESS reporting",
-      "5. Implementation"
+      "6 Code access"
     ]
   },
   {
@@ -99,121 +55,59 @@
     ]
   },
   {
-    "objectID": "03_stress/01_objectives.html",
-    "href": "03_stress/01_objectives.html",
-    "title": "1. Objectives",
+    "objectID": "03_stress/02_logic.html",
+    "href": "03_stress/02_logic.html",
+    "title": "2. Logic",
     "section": "",
-    "text": "Primary purpose\n\n\n\nThe simulation model provides a framework for decision makers to evaluate the impact of different resourcing for call operators and advanced nurse practitioners on queues and other efficiency criteria in the urgent care call centre.",
+    "text": "flowchart LR\n  A(Call) --&gt;|Wait| B[Urgent Care call]\n  B --&gt; C{Nurse?}\n  C --&gt;|Yes/Wait| D[Nurse consultation]\n  C --&gt;|No| E(Exit)\n  D --&gt; E(Exit)",
     "crumbs": [
       "STRESS reporting",
-      "1. Objectives"
+      "2. Logic"
     ]
   },
   {
-    "objectID": "03_stress/01_objectives.html#purpose-of-the-model",
-    "href": "03_stress/01_objectives.html#purpose-of-the-model",
-    "title": "1. Objectives",
+    "objectID": "03_stress/02_logic.html#base-model-logic-diagram",
+    "href": "03_stress/02_logic.html#base-model-logic-diagram",
+    "title": "2. Logic",
     "section": "",
-    "text": "Primary purpose\n\n\n\nThe simulation model provides a framework for decision makers to evaluate the impact of different resourcing for call operators and advanced nurse practitioners on queues and other efficiency criteria in the urgent care call centre.",
+    "text": "flowchart LR\n  A(Call) --&gt;|Wait| B[Urgent Care call]\n  B --&gt; C{Nurse?}\n  C --&gt;|Yes/Wait| D[Nurse consultation]\n  C --&gt;|No| E(Exit)\n  D --&gt; E(Exit)",
     "crumbs": [
       "STRESS reporting",
-      "1. Objectives"
+      "2. Logic"
     ]
   },
   {
-    "objectID": "03_stress/01_objectives.html#model-outputs",
-    "href": "03_stress/01_objectives.html#model-outputs",
-    "title": "1. Objectives",
-    "section": "1.2 Model Outputs",
-    "text": "1.2 Model Outputs\nAt the end of a model run the average waiting times and resource utilisation is calculated for each of the following activities.\n\nCall triage by call operator\nNurse consultation call back\n\nResults are generated using multiple independent replications. No warm up period is employed.",
+    "objectID": "03_stress/02_logic.html#base-model-logic",
+    "href": "03_stress/02_logic.html#base-model-logic",
+    "title": "2. Logic",
+    "section": "2.2. Base model logic",
+    "text": "2.2. Base model logic\nCallers arrive at random with inter-arrival times following an Exponential distribution at a rate of 100 per hour. Call length can be represented by a triangular distribution. Calls last between 5 minutes and 15 minutes. Most calls last 7 minutes. There are 13 call operators.\nAfter a patient has spoken to a call operator their priority is triaged. It is estimated that 40% of patients require a callback from a nurse. There are 9 nurses available. A nurse patient consultation has a Uniform distribution lasting between 10 and 20 minutes.\nThere is only a single class or patient in the model.",
     "crumbs": [
       "STRESS reporting",
-      "1. Objectives"
+      "2. Logic"
     ]
   },
   {
-    "objectID": "03_stress/01_objectives.html#experimentation-aims",
-    "href": "03_stress/01_objectives.html#experimentation-aims",
-    "title": "1. Objectives",
-    "section": "1.3 Experimentation aims",
-    "text": "1.3 Experimentation aims\n\nIncreasing call operator capacity by +1\nIncreasing advanced nurse practitioner capacity by +1\nIncreasing chance of nurse callback by +5%",
+    "objectID": "03_stress/02_logic.html#scenario-logic",
+    "href": "03_stress/02_logic.html#scenario-logic",
+    "title": "2. Logic",
+    "section": "2.3 Scenario logic",
+    "text": "2.3 Scenario logic\nExperimentation in this model is simple and varies the number of resources available.",
     "crumbs": [
       "STRESS reporting",
-      "1. Objectives"
+      "2. Logic"
     ]
   },
   {
-    "objectID": "01_intro/05_other_artifacts.html",
-    "href": "01_intro/05_other_artifacts.html",
-    "title": "Related artefacts",
-    "section": "",
-    "text": "The ciw model described in this material has been given a Shiny for Python interface. This allows users to easily experiment with the simulation model. The web app is hosted on a free tier of shinyapps.io. The app can be accessed at https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar.\n\nThis is a free service. If the app has not been used for a while it will be “asleep” to save resources. Please be patient while the app “wakes up”. This will be a short time.",
+    "objectID": "03_stress/02_logic.html#algorithms",
+    "href": "03_stress/02_logic.html#algorithms",
+    "title": "2. Logic",
+    "section": "2.4 Algorithms",
+    "text": "2.4 Algorithms\nN/A.",
     "crumbs": [
-      "Introduction",
-      "Related artefacts"
+      "STRESS reporting",
+      "2. Logic"
     ]
-  },
-  {
-    "objectID": "01_intro/05_other_artifacts.html#shiny-web-app",
-    "href": "01_intro/05_other_artifacts.html#shiny-web-app",
-    "title": "Related artefacts",
-    "section": "",
-    "text": "The ciw model described in this material has been given a Shiny for Python interface. This allows users to easily experiment with the simulation model. The web app is hosted on a free tier of shinyapps.io. The app can be accessed at https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar.\n\nThis is a free service. If the app has not been used for a while it will be “asleep” to save resources. Please be patient while the app “wakes up”. This will be a short time.",
-    "crumbs": [
-      "Introduction",
-      "Related artefacts"
-    ]
-  },
-  {
-    "objectID": "01_intro/05_other_artifacts.html#online-notebooks-via-binder",
-    "href": "01_intro/05_other_artifacts.html#online-notebooks-via-binder",
-    "title": "Related artefacts",
-    "section": "Online Notebooks via Binder",
-    "text": "Online Notebooks via Binder\nThe python code for the model has been setup to run online in Jupyter notebooks via binder \n\nBinder is a free service. If it has not been used in a while Binder will need to re-containerise the code repository, and push to binderhub. This will take several minutes. After that the online environment will be quick to load.",
-    "crumbs": [
-      "Introduction",
-      "Related artefacts"
-    ]
-  },
-  {
-    "objectID": "01_intro/02_license.html",
-    "href": "01_intro/02_license.html",
-    "title": "License",
-    "section": "",
-    "text": "All written content in this book (this includes all files and content in the content/ folder) is shared under CC BY 4.0.\nYou are free to:\n\nShare - copy and redistribute the material in any medium or format\nAdapt - remix, transform, and build upon the material for any purpose, even commercially.\n\nYou must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nLicense info: https://creativecommons.org/licenses/by/4.0/",
-    "crumbs": [
-      "Introduction",
-      "License"
-    ]
-  },
-  {
-    "objectID": "01_intro/02_license.html#creative-commons-license",
-    "href": "01_intro/02_license.html#creative-commons-license",
-    "title": "License",
-    "section": "",
-    "text": "All written content in this book (this includes all files and content in the content/ folder) is shared under CC BY 4.0.\nYou are free to:\n\nShare - copy and redistribute the material in any medium or format\nAdapt - remix, transform, and build upon the material for any purpose, even commercially.\n\nYou must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nLicense info: https://creativecommons.org/licenses/by/4.0/",
-    "crumbs": [
-      "Introduction",
-      "License"
-    ]
-  },
-  {
-    "objectID": "01_intro/02_license.html#code-gplv3",
-    "href": "01_intro/02_license.html#code-gplv3",
-    "title": "License",
-    "section": "Code: GPLv3",
-    "text": "Code: GPLv3\nAll code in this supplementary material is licensed under a GNU General Public License Version 3",
-    "crumbs": [
-      "Introduction",
-      "License"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Towards Sharing Tools, Artefacts, and Reproducible Simulation: a ciw model examplar",
-    "section": "",
-    "text": "ReuseCC BY 4.0CitationBibTeX citation:@online{monks,\n  author = {Monks, Thomas and Harper, Alison and Heather, Amy},\n  title = {Towards {Sharing} {Tools,} {Artefacts,} and {Reproducible}\n    {Simulation:} A `Ciw` Model Examplar},\n  url = {https://pythonhealthdatascience.github.io/stars-ciw-example/},\n  doi = {10.5281/zenodo.10051494},\n  langid = {en},\n  abstract = {The materials and methods in this documentation support\n    work towards developing the **S.T.A.R.S healthcare framework**\n    (**S**haring **T**ools and **A**rtefacts for **R**eproducible\n    **S**imulations in healthcare). Long term S.T.A.R.S aims to support\n    researchers share open simulation models regardless of language\n    choice, improve the quality of sharing, and reduce the workload\n    required to meet high standards of open science for the modelling\n    and simulation community. The code and written materials here\n    demonstrate the application of S.T.A.R.S’ version 1 to sharing a\n    `ciw` discrete-event simuilation model and associated research\n    artefacts: * All artefacts in this repository are linked to study\n    researchers via ORCIDs; * Model code is made available under a GNU\n    Public License version 3; * Python dependencies are managed through\n    `conda`; * The code builds a Shiny for Python web application that\n    can be used to run the model (web app); * The python code itself can\n    be viewed and executed in Jupyter notebooks via\n    {[}Binder{]}(https://mybinder.org); * The model is documented and\n    explained in a quarto website served up by GitHub pages; * The\n    materials are deposited and made citatable using Zenodo; * The\n    models are sharable with other researchers and the NHS without the\n    need to install software.}\n}\nFor attribution, please cite this work as:\nMonks, Thomas, Alison Harper, and Amy Heather. n.d. “Towards\nSharing Tools, Artefacts, and Reproducible Simulation: A `Ciw` Model\nExamplar.” Zenodo. https://doi.org/10.5281/zenodo.10051494."
   },
   {
     "objectID": "02_model/02_code_explaination.html",
@@ -282,91 +176,14 @@
     ]
   },
   {
-    "objectID": "02_model/01_basic_usage.html",
-    "href": "02_model/01_basic_usage.html",
-    "title": "Using the model",
+    "objectID": "02_model/00_software.html",
+    "href": "02_model/00_software.html",
+    "title": "Simulation software",
     "section": "",
-    "text": "The code for the simulation model is contained in the ciw_model.py module. The module contains wrapper functions to allow easy creation of new experiments and execution of multiple replications.\nA user only needs to import the Experiment class and the multiple_replications function.",
+    "text": "ciw is an free and open source software package for discrete-event simulation of open queuing networks.\nMore information about ciw and how to build queuing network models can be found here: https://ciw.readthedocs.io\n\nGeraint I. Palmer, Vincent A. Knight, Paul R. Harper & Asyl L. Hawa (2019) Ciw: An open-source discrete event simulation library, Journal of Simulation, 13:1, 68-82, DOI: 10.1080/17477778.2018.1473909 https://doi.org/10.1080/17477778.2018.1473909",
     "crumbs": [
       "`ciw` code",
-      "Using the model"
-    ]
-  },
-  {
-    "objectID": "02_model/01_basic_usage.html#imports",
-    "href": "02_model/01_basic_usage.html#imports",
-    "title": "Using the model",
-    "section": "Imports",
-    "text": "Imports\n\nfrom ciw_model import (Experiment, \n                       multiple_replications)",
-    "crumbs": [
-      "`ciw` code",
-      "Using the model"
-    ]
-  },
-  {
-    "objectID": "02_model/01_basic_usage.html#default-run-of-the-model",
-    "href": "02_model/01_basic_usage.html#default-run-of-the-model",
-    "title": "Using the model",
-    "section": "Default run of the model",
-    "text": "Default run of the model\nTo perform a default of the model, create an instance of Experiment and pass it to the multiple_replications function. By default the model is run for 5 replications. The function results a pandas.DataFrame containing replications and performance measures.\n\ndefault_experiment = Experiment()\nresults = multiple_replications(default_experiment)\nresults\n\n\n\n\n\n\n\n\n01_mean_waiting_time\n02_operator_util\n03_mean_nurse_waiting_time\n04_nurse_util\n\n\nrep\n\n\n\n\n\n\n\n\n1\n2.784746\n91.374255\n47.927266\n96.753369\n\n\n2\n1.367329\n91.853442\n31.935974\n97.776217\n\n\n3\n4.009524\n95.925268\n79.743715\n98.214845\n\n\n4\n1.519486\n89.297980\n46.554721\n96.708677\n\n\n5\n3.183769\n95.467289\n55.718766\n97.688507\n\n\n\n\n\n\n\nTo summarise results call the .describe() method of the results dataframe.\n\nThe code below also rounds to 1 decimal place and transposes the dataframe\n\n\nresults.describe().round(1).T\n\n\n\n\n\n\n\n\ncount\nmean\nstd\nmin\n25%\n50%\n75%\nmax\n\n\n\n\n01_mean_waiting_time\n5.0\n2.6\n1.1\n1.4\n1.5\n2.8\n3.2\n4.0\n\n\n02_operator_util\n5.0\n92.8\n2.8\n89.3\n91.4\n91.9\n95.5\n95.9\n\n\n03_mean_nurse_waiting_time\n5.0\n52.4\n17.5\n31.9\n46.6\n47.9\n55.7\n79.7\n\n\n04_nurse_util\n5.0\n97.4\n0.7\n96.7\n96.8\n97.7\n97.8\n98.2",
-    "crumbs": [
-      "`ciw` code",
-      "Using the model"
-    ]
-  },
-  {
-    "objectID": "02_model/01_basic_usage.html#creating-new-scenarios",
-    "href": "02_model/01_basic_usage.html#creating-new-scenarios",
-    "title": "Using the model",
-    "section": "Creating new scenarios",
-    "text": "Creating new scenarios\nThe code below changes the number call operators, advanced nurse practitioners and chance of a call back from a nurse.\n\nwhat_if_experiment = Experiment(n_operators=14, n_nurses=10, chance_callback=0.45)\nwhat_if_results = multiple_replications(what_if_experiment)\nwhat_if_results.describe().round(1).T\n\n\n\n\n\n\n\n\ncount\nmean\nstd\nmin\n25%\n50%\n75%\nmax\n\n\n\n\n01_mean_waiting_time\n5.0\n1.2\n0.4\n0.5\n1.1\n1.2\n1.5\n1.7\n\n\n02_operator_util\n5.0\n86.5\n2.6\n82.4\n85.8\n86.8\n88.3\n89.2\n\n\n03_mean_nurse_waiting_time\n5.0\n55.1\n19.0\n22.4\n58.1\n58.7\n66.5\n70.0\n\n\n04_nurse_util\n5.0\n97.3\n0.5\n96.8\n96.9\n97.6\n97.7\n97.7",
-    "crumbs": [
-      "`ciw` code",
-      "Using the model"
-    ]
-  },
-  {
-    "objectID": "02_model/01_basic_usage.html#running-more-replications",
-    "href": "02_model/01_basic_usage.html#running-more-replications",
-    "title": "Using the model",
-    "section": "Running more replications",
-    "text": "Running more replications\nBy default the multiple_replications function runs 5 replications. To change the default se the n_reps parameter. The example below runs 50 replications of the model.\n\ndefault_experiment = Experiment()\nresults = multiple_replications(default_experiment, n_reps=50)\nresults.describe().round(1).T\n\n\n\n\n\n\n\n\ncount\nmean\nstd\nmin\n25%\n50%\n75%\nmax\n\n\n\n\n01_mean_waiting_time\n50.0\n3.5\n1.9\n1.5\n2.3\n2.9\n4.0\n11.0\n\n\n02_operator_util\n50.0\n92.9\n2.3\n86.8\n91.9\n92.8\n94.7\n97.0\n\n\n03_mean_nurse_waiting_time\n50.0\n48.5\n19.4\n14.5\n36.3\n44.7\n61.9\n95.0\n\n\n04_nurse_util\n50.0\n97.1\n1.0\n94.1\n96.8\n97.2\n97.7\n98.3",
-    "crumbs": [
-      "`ciw` code",
-      "Using the model"
-    ]
-  },
-  {
-    "objectID": "03_stress/06_code_access.html",
-    "href": "03_stress/06_code_access.html",
-    "title": "6 Code access",
-    "section": "",
-    "text": "6 Code access\nSimulation model code is available from the main branch of the Github repository: https://github.com/pythonhealthdatascience/stars-ciw-example. All simulation model code is contained within ciw_model.py.\n\nShiny web app\nThe ciw model has been given a Shiny for Python interface. This allows users to easily experiment with the simulation model. The web app is hosted on a free tier of shinyapps.io. The app can be accessed at https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar.\n\nThis is a free service. If the app has not been used for a while it will be “asleep” to save resources. Please be patient while the app “wakes up”. This will be a short time.\n\n\n\nOnline Notebooks via Binder\nThe python code for the model has been setup to run online in Jupyter notebooks via binder \n\nBinder is a free service. If it has not been used in a while Binder will need to re-containerise the code repository, and push to binderhub. This will take several minutes. After that the online environment will be quick to load.",
-    "crumbs": [
-      "STRESS reporting",
-      "6 Code access"
-    ]
-  },
-  {
-    "objectID": "preface.html",
-    "href": "preface.html",
-    "title": "Abstract",
-    "section": "",
-    "text": "The materials and methods in this documentation support work towards developing the S.T.A.R.S healthcare framework (Sharing Tools and Artefacts for Reproducible Simulations in healthcare). Long term S.T.A.R.S aims to support researchers share open simulation models regardless of language choice, improve the quality of sharing, and reduce the workload required to meet high standards of open science for the modelling and simulation community.\nThe code and written materials here demonstrate the application of S.T.A.R.S’ version 1 to sharing a ciw discrete-event simuilation model and associated research artefacts.\n\nAll artefacts in this repository are linked to study researchers via ORCIDs;\nModel code is made available under a GNU Public License version 3;\nPython dependencies are managed through conda;\nThe code builds a Shiny for Python web application that can be used to run the model (web app);\nThe python code itself can be viewed and executed in Jupyter notebooks via Binder;\nThe model is documented and explained in a quarto website served up by GitHub pages;\nThe materials are deposited and made citatable using Zenodo;\nThe models are sharable with other researchers and the NHS without the need to install software.",
-    "crumbs": [
-      "Introduction",
-      "Abstract"
-    ]
-  },
-  {
-    "objectID": "preface.html#towards-sharing-tools-artefacts-and-reproducible-simulation-a-ciw-model-examplar",
-    "href": "preface.html#towards-sharing-tools-artefacts-and-reproducible-simulation-a-ciw-model-examplar",
-    "title": "Abstract",
-    "section": "",
-    "text": "The materials and methods in this documentation support work towards developing the S.T.A.R.S healthcare framework (Sharing Tools and Artefacts for Reproducible Simulations in healthcare). Long term S.T.A.R.S aims to support researchers share open simulation models regardless of language choice, improve the quality of sharing, and reduce the workload required to meet high standards of open science for the modelling and simulation community.\nThe code and written materials here demonstrate the application of S.T.A.R.S’ version 1 to sharing a ciw discrete-event simuilation model and associated research artefacts.\n\nAll artefacts in this repository are linked to study researchers via ORCIDs;\nModel code is made available under a GNU Public License version 3;\nPython dependencies are managed through conda;\nThe code builds a Shiny for Python web application that can be used to run the model (web app);\nThe python code itself can be viewed and executed in Jupyter notebooks via Binder;\nThe model is documented and explained in a quarto website served up by GitHub pages;\nThe materials are deposited and made citatable using Zenodo;\nThe models are sharable with other researchers and the NHS without the need to install software.",
-    "crumbs": [
-      "Introduction",
-      "Abstract"
+      "Simulation software"
     ]
   },
   {
@@ -425,14 +242,197 @@
     ]
   },
   {
-    "objectID": "02_model/00_software.html",
-    "href": "02_model/00_software.html",
-    "title": "Simulation software",
+    "objectID": "preface.html",
+    "href": "preface.html",
+    "title": "Abstract",
     "section": "",
-    "text": "ciw is an free and open source software package for discrete-event simulation of open queuing networks.\nMore information about ciw and how to build queuing network models can be found here: https://ciw.readthedocs.io\n\nGeraint I. Palmer, Vincent A. Knight, Paul R. Harper & Asyl L. Hawa (2019) Ciw: An open-source discrete event simulation library, Journal of Simulation, 13:1, 68-82, DOI: 10.1080/17477778.2018.1473909 https://doi.org/10.1080/17477778.2018.1473909",
+    "text": "The materials and methods in this documentation support work towards developing the S.T.A.R.S healthcare framework (Sharing Tools and Artefacts for Reproducible Simulations in healthcare). Long term S.T.A.R.S aims to support researchers share open simulation models regardless of language choice, improve the quality of sharing, and reduce the workload required to meet high standards of open science for the modelling and simulation community.\nThe code and written materials here demonstrate the application of S.T.A.R.S’ version 1 to sharing a ciw discrete-event simuilation model and associated research artefacts.\n\nAll artefacts in this repository are linked to study researchers via ORCIDs;\nModel code is made available under a GNU Public License version 3;\nPython dependencies are managed through conda;\nThe code builds a Shiny for Python web application that can be used to run the model (web app);\nThe python code itself can be viewed and executed in Jupyter notebooks via Binder;\nThe model is documented and explained in a quarto website served up by GitHub pages;\nThe materials are deposited and made citatable using Zenodo;\nThe models are sharable with other researchers and the NHS without the need to install software.",
+    "crumbs": [
+      "Introduction",
+      "Abstract"
+    ]
+  },
+  {
+    "objectID": "preface.html#towards-sharing-tools-artefacts-and-reproducible-simulation-a-ciw-model-examplar",
+    "href": "preface.html#towards-sharing-tools-artefacts-and-reproducible-simulation-a-ciw-model-examplar",
+    "title": "Abstract",
+    "section": "",
+    "text": "The materials and methods in this documentation support work towards developing the S.T.A.R.S healthcare framework (Sharing Tools and Artefacts for Reproducible Simulations in healthcare). Long term S.T.A.R.S aims to support researchers share open simulation models regardless of language choice, improve the quality of sharing, and reduce the workload required to meet high standards of open science for the modelling and simulation community.\nThe code and written materials here demonstrate the application of S.T.A.R.S’ version 1 to sharing a ciw discrete-event simuilation model and associated research artefacts.\n\nAll artefacts in this repository are linked to study researchers via ORCIDs;\nModel code is made available under a GNU Public License version 3;\nPython dependencies are managed through conda;\nThe code builds a Shiny for Python web application that can be used to run the model (web app);\nThe python code itself can be viewed and executed in Jupyter notebooks via Binder;\nThe model is documented and explained in a quarto website served up by GitHub pages;\nThe materials are deposited and made citatable using Zenodo;\nThe models are sharable with other researchers and the NHS without the need to install software.",
+    "crumbs": [
+      "Introduction",
+      "Abstract"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Towards Sharing Tools, Artefacts, and Reproducible Simulation: a ciw model examplar",
+    "section": "",
+    "text": "ReuseCC BY 4.0CitationBibTeX citation:@online{monks,\n  author = {Monks, Thomas and Harper, Alison and Heather, Amy},\n  title = {Towards {Sharing} {Tools,} {Artefacts,} and {Reproducible}\n    {Simulation:} A `Ciw` Model Examplar},\n  url = {https://pythonhealthdatascience.github.io/stars-ciw-example/},\n  doi = {10.5281/zenodo.10051494},\n  langid = {en},\n  abstract = {The materials and methods in this documentation support\n    work towards developing the **S.T.A.R.S healthcare framework**\n    (**S**haring **T**ools and **A**rtefacts for **R**eproducible\n    **S**imulations in healthcare). Long term S.T.A.R.S aims to support\n    researchers share open simulation models regardless of language\n    choice, improve the quality of sharing, and reduce the workload\n    required to meet high standards of open science for the modelling\n    and simulation community. The code and written materials here\n    demonstrate the application of S.T.A.R.S’ version 1 to sharing a\n    `ciw` discrete-event simuilation model and associated research\n    artefacts: * All artefacts in this repository are linked to study\n    researchers via ORCIDs; * Model code is made available under a GNU\n    Public License version 3; * Python dependencies are managed through\n    `conda`; * The code builds a Shiny for Python web application that\n    can be used to run the model (web app); * The python code itself can\n    be viewed and executed in Jupyter notebooks via\n    {[}Binder{]}(https://mybinder.org); * The model is documented and\n    explained in a quarto website served up by GitHub pages; * The\n    materials are deposited and made citatable using Zenodo; * The\n    models are sharable with other researchers and the NHS without the\n    need to install software.}\n}\nFor attribution, please cite this work as:\nMonks, Thomas, Alison Harper, and Amy Heather. n.d. “Towards\nSharing Tools, Artefacts, and Reproducible Simulation: A `Ciw` Model\nExamplar.” Zenodo. https://doi.org/10.5281/zenodo.10051494."
+  },
+  {
+    "objectID": "01_intro/02_license.html",
+    "href": "01_intro/02_license.html",
+    "title": "License",
+    "section": "",
+    "text": "All written content in this book (this includes all files and content in the content/ folder) is shared under CC BY 4.0.\nYou are free to:\n\nShare - copy and redistribute the material in any medium or format\nAdapt - remix, transform, and build upon the material for any purpose, even commercially.\n\nYou must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nLicense info: https://creativecommons.org/licenses/by/4.0/",
+    "crumbs": [
+      "Introduction",
+      "License"
+    ]
+  },
+  {
+    "objectID": "01_intro/02_license.html#creative-commons-license",
+    "href": "01_intro/02_license.html#creative-commons-license",
+    "title": "License",
+    "section": "",
+    "text": "All written content in this book (this includes all files and content in the content/ folder) is shared under CC BY 4.0.\nYou are free to:\n\nShare - copy and redistribute the material in any medium or format\nAdapt - remix, transform, and build upon the material for any purpose, even commercially.\n\nYou must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nLicense info: https://creativecommons.org/licenses/by/4.0/",
+    "crumbs": [
+      "Introduction",
+      "License"
+    ]
+  },
+  {
+    "objectID": "01_intro/02_license.html#code-gplv3",
+    "href": "01_intro/02_license.html#code-gplv3",
+    "title": "License",
+    "section": "Code: GPLv3",
+    "text": "Code: GPLv3\nAll code in this supplementary material is licensed under a GNU General Public License Version 3",
+    "crumbs": [
+      "Introduction",
+      "License"
+    ]
+  },
+  {
+    "objectID": "01_intro/05_other_artifacts.html",
+    "href": "01_intro/05_other_artifacts.html",
+    "title": "Related artefacts",
+    "section": "",
+    "text": "The ciw model described in this material has been given a Shiny for Python interface. This allows users to easily experiment with the simulation model. The web app is hosted on a free tier of shinyapps.io. The app can be accessed at https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar.\n\nThis is a free service. If the app has not been used for a while it will be “asleep” to save resources. Please be patient while the app “wakes up”. This will be a short time.",
+    "crumbs": [
+      "Introduction",
+      "Related artefacts"
+    ]
+  },
+  {
+    "objectID": "01_intro/05_other_artifacts.html#shiny-web-app",
+    "href": "01_intro/05_other_artifacts.html#shiny-web-app",
+    "title": "Related artefacts",
+    "section": "",
+    "text": "The ciw model described in this material has been given a Shiny for Python interface. This allows users to easily experiment with the simulation model. The web app is hosted on a free tier of shinyapps.io. The app can be accessed at https://pythonhealthdatascience.shinyapps.io/stars-ciw-examplar.\n\nThis is a free service. If the app has not been used for a while it will be “asleep” to save resources. Please be patient while the app “wakes up”. This will be a short time.",
+    "crumbs": [
+      "Introduction",
+      "Related artefacts"
+    ]
+  },
+  {
+    "objectID": "01_intro/05_other_artifacts.html#online-notebooks-via-binder",
+    "href": "01_intro/05_other_artifacts.html#online-notebooks-via-binder",
+    "title": "Related artefacts",
+    "section": "Online Notebooks via Binder",
+    "text": "Online Notebooks via Binder\nThe python code for the model has been setup to run online in Jupyter notebooks via binder \n\nBinder is a free service. If it has not been used in a while Binder will need to re-containerise the code repository, and push to binderhub. This will take several minutes. After that the online environment will be quick to load.",
+    "crumbs": [
+      "Introduction",
+      "Related artefacts"
+    ]
+  },
+  {
+    "objectID": "02_model/01_basic_usage.html",
+    "href": "02_model/01_basic_usage.html",
+    "title": "Using the model",
+    "section": "",
+    "text": "The code for the simulation model is contained in the ciw_model.py module. The module contains wrapper functions to allow easy creation of new experiments and execution of multiple replications.\nA user only needs to import the Experiment class and the multiple_replications function.",
     "crumbs": [
       "`ciw` code",
-      "Simulation software"
+      "Using the model"
+    ]
+  },
+  {
+    "objectID": "02_model/01_basic_usage.html#imports",
+    "href": "02_model/01_basic_usage.html#imports",
+    "title": "Using the model",
+    "section": "Imports",
+    "text": "Imports\n\nfrom ciw_model import (Experiment, \n                       multiple_replications)",
+    "crumbs": [
+      "`ciw` code",
+      "Using the model"
+    ]
+  },
+  {
+    "objectID": "02_model/01_basic_usage.html#default-run-of-the-model",
+    "href": "02_model/01_basic_usage.html#default-run-of-the-model",
+    "title": "Using the model",
+    "section": "Default run of the model",
+    "text": "Default run of the model\nTo perform a default of the model, create an instance of Experiment and pass it to the multiple_replications function. By default the model is run for 5 replications. The function results a pandas.DataFrame containing replications and performance measures.\n\ndefault_experiment = Experiment()\nresults = multiple_replications(default_experiment)\nresults\n\n\n\n\n\n\n\n\n01_mean_waiting_time\n02_operator_util\n03_mean_nurse_waiting_time\n04_nurse_util\n\n\nrep\n\n\n\n\n\n\n\n\n1\n2.784746\n91.374255\n47.927266\n96.753369\n\n\n2\n1.367329\n91.853442\n31.935974\n97.776217\n\n\n3\n4.009524\n95.925268\n79.743715\n98.214845\n\n\n4\n1.519486\n89.297980\n46.554721\n96.708677\n\n\n5\n3.183769\n95.467289\n55.718766\n97.688507\n\n\n\n\n\n\n\nTo summarise results call the .describe() method of the results dataframe.\n\nThe code below also rounds to 1 decimal place and transposes the dataframe\n\n\nresults.describe().round(1).T\n\n\n\n\n\n\n\n\ncount\nmean\nstd\nmin\n25%\n50%\n75%\nmax\n\n\n\n\n01_mean_waiting_time\n5.0\n2.6\n1.1\n1.4\n1.5\n2.8\n3.2\n4.0\n\n\n02_operator_util\n5.0\n92.8\n2.8\n89.3\n91.4\n91.9\n95.5\n95.9\n\n\n03_mean_nurse_waiting_time\n5.0\n52.4\n17.5\n31.9\n46.6\n47.9\n55.7\n79.7\n\n\n04_nurse_util\n5.0\n97.4\n0.7\n96.7\n96.8\n97.7\n97.8\n98.2",
+    "crumbs": [
+      "`ciw` code",
+      "Using the model"
+    ]
+  },
+  {
+    "objectID": "02_model/01_basic_usage.html#creating-new-scenarios",
+    "href": "02_model/01_basic_usage.html#creating-new-scenarios",
+    "title": "Using the model",
+    "section": "Creating new scenarios",
+    "text": "Creating new scenarios\nThe code below changes the number call operators, advanced nurse practitioners and chance of a call back from a nurse.\n\nwhat_if_experiment = Experiment(n_operators=14, n_nurses=10, chance_callback=0.45)\nwhat_if_results = multiple_replications(what_if_experiment)\nwhat_if_results.describe().round(1).T\n\n\n\n\n\n\n\n\ncount\nmean\nstd\nmin\n25%\n50%\n75%\nmax\n\n\n\n\n01_mean_waiting_time\n5.0\n1.2\n0.4\n0.5\n1.1\n1.2\n1.5\n1.7\n\n\n02_operator_util\n5.0\n86.5\n2.6\n82.4\n85.8\n86.8\n88.3\n89.2\n\n\n03_mean_nurse_waiting_time\n5.0\n55.1\n19.0\n22.4\n58.1\n58.7\n66.5\n70.0\n\n\n04_nurse_util\n5.0\n97.3\n0.5\n96.8\n96.9\n97.6\n97.7\n97.7",
+    "crumbs": [
+      "`ciw` code",
+      "Using the model"
+    ]
+  },
+  {
+    "objectID": "02_model/01_basic_usage.html#running-more-replications",
+    "href": "02_model/01_basic_usage.html#running-more-replications",
+    "title": "Using the model",
+    "section": "Running more replications",
+    "text": "Running more replications\nBy default the multiple_replications function runs 5 replications. To change the default se the n_reps parameter. The example below runs 50 replications of the model.\n\ndefault_experiment = Experiment()\nresults = multiple_replications(default_experiment, n_reps=50)\nresults.describe().round(1).T\n\n\n\n\n\n\n\n\ncount\nmean\nstd\nmin\n25%\n50%\n75%\nmax\n\n\n\n\n01_mean_waiting_time\n50.0\n3.5\n1.9\n1.5\n2.3\n2.9\n4.0\n11.0\n\n\n02_operator_util\n50.0\n92.9\n2.3\n86.8\n91.9\n92.8\n94.7\n97.0\n\n\n03_mean_nurse_waiting_time\n50.0\n48.5\n19.4\n14.5\n36.3\n44.7\n61.9\n95.0\n\n\n04_nurse_util\n50.0\n97.1\n1.0\n94.1\n96.8\n97.2\n97.7\n98.3",
+    "crumbs": [
+      "`ciw` code",
+      "Using the model"
+    ]
+  },
+  {
+    "objectID": "03_stress/01_objectives.html",
+    "href": "03_stress/01_objectives.html",
+    "title": "1. Objectives",
+    "section": "",
+    "text": "Primary purpose\n\n\n\nThe simulation model provides a framework for decision makers to evaluate the impact of different resourcing for call operators and advanced nurse practitioners on queues and other efficiency criteria in the urgent care call centre.",
+    "crumbs": [
+      "STRESS reporting",
+      "1. Objectives"
+    ]
+  },
+  {
+    "objectID": "03_stress/01_objectives.html#purpose-of-the-model",
+    "href": "03_stress/01_objectives.html#purpose-of-the-model",
+    "title": "1. Objectives",
+    "section": "",
+    "text": "Primary purpose\n\n\n\nThe simulation model provides a framework for decision makers to evaluate the impact of different resourcing for call operators and advanced nurse practitioners on queues and other efficiency criteria in the urgent care call centre.",
+    "crumbs": [
+      "STRESS reporting",
+      "1. Objectives"
+    ]
+  },
+  {
+    "objectID": "03_stress/01_objectives.html#model-outputs",
+    "href": "03_stress/01_objectives.html#model-outputs",
+    "title": "1. Objectives",
+    "section": "1.2 Model Outputs",
+    "text": "1.2 Model Outputs\nAt the end of a model run the average waiting times and resource utilisation is calculated for each of the following activities.\n\nCall triage by call operator\nNurse consultation call back\n\nResults are generated using multiple independent replications. No warm up period is employed.",
+    "crumbs": [
+      "STRESS reporting",
+      "1. Objectives"
+    ]
+  },
+  {
+    "objectID": "03_stress/01_objectives.html#experimentation-aims",
+    "href": "03_stress/01_objectives.html#experimentation-aims",
+    "title": "1. Objectives",
+    "section": "1.3 Experimentation aims",
+    "text": "1.3 Experimentation aims\n\nIncreasing call operator capacity by +1\nIncreasing advanced nurse practitioner capacity by +1\nIncreasing chance of nurse callback by +5%",
+    "crumbs": [
+      "STRESS reporting",
+      "1. Objectives"
     ]
   },
   {
@@ -502,58 +502,58 @@
     ]
   },
   {
-    "objectID": "03_stress/02_logic.html",
-    "href": "03_stress/02_logic.html",
-    "title": "2. Logic",
+    "objectID": "03_stress/05_implementation.html",
+    "href": "03_stress/05_implementation.html",
+    "title": "5. Implementation",
     "section": "",
-    "text": "flowchart LR\n  A(Call) --&gt;|Wait| B[Urgent Care call]\n  B --&gt; C{Nurse?}\n  C --&gt;|Yes/Wait| D[Nurse consultation]\n  C --&gt;|No| E(Exit)\n  D --&gt; E(Exit)",
+    "text": "The simulation model was developed using python 3.9 and ciw 2.3. ciw details are here: https://ciw.readthedocs.io\nThe web app was developed using Shiny for Python version 1.1.0.\nThe exact software versions are:\nname: stars_pyshiny\nchannels:\n  - conda-forge\ndependencies:\n  - matplotlib=3.7.1\n  - numpy=1.25.0\n  - pandas=2.0.2\n  - plotly=5.15.0\n  - pip=23.1.2\n  - python=3.9.16\n  - scipy=1.10.1\n  - pip:\n    - ciw==2.3.1\n    - faicons==0.2.2\n    - shiny==1.1.0\n    - shinyswatch==0.7.0\n    - shinywidgets==0.3.3\n    - rsconnect-python==1.24.0\nA conda virtual environment is provided to manage versions on a local machine.",
     "crumbs": [
       "STRESS reporting",
-      "2. Logic"
+      "5. Implementation"
     ]
   },
   {
-    "objectID": "03_stress/02_logic.html#base-model-logic-diagram",
-    "href": "03_stress/02_logic.html#base-model-logic-diagram",
-    "title": "2. Logic",
+    "objectID": "03_stress/05_implementation.html#software-or-programming-language",
+    "href": "03_stress/05_implementation.html#software-or-programming-language",
+    "title": "5. Implementation",
     "section": "",
-    "text": "flowchart LR\n  A(Call) --&gt;|Wait| B[Urgent Care call]\n  B --&gt; C{Nurse?}\n  C --&gt;|Yes/Wait| D[Nurse consultation]\n  C --&gt;|No| E(Exit)\n  D --&gt; E(Exit)",
+    "text": "The simulation model was developed using python 3.9 and ciw 2.3. ciw details are here: https://ciw.readthedocs.io\nThe web app was developed using Shiny for Python version 1.1.0.\nThe exact software versions are:\nname: stars_pyshiny\nchannels:\n  - conda-forge\ndependencies:\n  - matplotlib=3.7.1\n  - numpy=1.25.0\n  - pandas=2.0.2\n  - plotly=5.15.0\n  - pip=23.1.2\n  - python=3.9.16\n  - scipy=1.10.1\n  - pip:\n    - ciw==2.3.1\n    - faicons==0.2.2\n    - shiny==1.1.0\n    - shinyswatch==0.7.0\n    - shinywidgets==0.3.3\n    - rsconnect-python==1.24.0\nA conda virtual environment is provided to manage versions on a local machine.",
     "crumbs": [
       "STRESS reporting",
-      "2. Logic"
+      "5. Implementation"
     ]
   },
   {
-    "objectID": "03_stress/02_logic.html#base-model-logic",
-    "href": "03_stress/02_logic.html#base-model-logic",
-    "title": "2. Logic",
-    "section": "2.2. Base model logic",
-    "text": "2.2. Base model logic\nCallers arrive at random with inter-arrival times following an Exponential distribution at a rate of 100 per hour. Call length can be represented by a triangular distribution. Calls last between 5 minutes and 15 minutes. Most calls last 7 minutes. There are 13 call operators.\nAfter a patient has spoken to a call operator their priority is triaged. It is estimated that 40% of patients require a callback from a nurse. There are 9 nurses available. A nurse patient consultation has a Uniform distribution lasting between 10 and 20 minutes.\nThere is only a single class or patient in the model.",
+    "objectID": "03_stress/05_implementation.html#random-sampling",
+    "href": "03_stress/05_implementation.html#random-sampling",
+    "title": "5. Implementation",
+    "section": "5.2 Random sampling",
+    "text": "5.2 Random sampling\nciw’s source code indicates that it uses python’s random module for generating samples. Python uses the Mersenne Twister to generate uniform random numbers. https://docs.python.org/3/library/random.html",
     "crumbs": [
       "STRESS reporting",
-      "2. Logic"
+      "5. Implementation"
     ]
   },
   {
-    "objectID": "03_stress/02_logic.html#scenario-logic",
-    "href": "03_stress/02_logic.html#scenario-logic",
-    "title": "2. Logic",
-    "section": "2.3 Scenario logic",
-    "text": "2.3 Scenario logic\nExperimentation in this model is simple and varies the number of resources available.",
+    "objectID": "03_stress/05_implementation.html#model-execution",
+    "href": "03_stress/05_implementation.html#model-execution",
+    "title": "5. Implementation",
+    "section": "5.3 Model execution",
+    "text": "5.3 Model execution\nciw uses an event scheduling approach similar to the three phase simulation worldview. More details https://ciw.readthedocs.io/en/latest/Background/mechanisms.html",
     "crumbs": [
       "STRESS reporting",
-      "2. Logic"
+      "5. Implementation"
     ]
   },
   {
-    "objectID": "03_stress/02_logic.html#algorithms",
-    "href": "03_stress/02_logic.html#algorithms",
-    "title": "2. Logic",
-    "section": "2.4 Algorithms",
-    "text": "2.4 Algorithms\nN/A.",
+    "objectID": "03_stress/05_implementation.html#system-specification",
+    "href": "03_stress/05_implementation.html#system-specification",
+    "title": "5. Implementation",
+    "section": "5.4 System Specification",
+    "text": "5.4 System Specification\nThe model was coded, tested, and run on Intel i9-9900K CPU with 64GB RAM running the Pop!_OS 20.04 Linux.",
     "crumbs": [
       "STRESS reporting",
-      "2. Logic"
+      "5. Implementation"
     ]
   }
 ]
